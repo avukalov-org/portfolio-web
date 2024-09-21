@@ -28,12 +28,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="h-16 md:h-20">
-          <Navbar />
+        <header className="sticky top-0 bg-white shadow-lg h-16 md:h-20">
+          <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
+            <Navbar />
+          </div>
         </header>
-        <div>{children}</div>
+        <div className="h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)]">
+          <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );

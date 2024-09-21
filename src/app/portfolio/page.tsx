@@ -6,10 +6,10 @@ const projects: Project[] = [
   { title: "Projekt 2", description: "Opis projekta 2", image: "/hero.png" },
 ];
 
-const ProjectsPage: React.FC = () => {
+const PortfolioPage: React.FC = () => {
   return (
     <div className="p-5">
-      <h1 className="text-3xl font-bold">Projects Page</h1>
+      <h1 className="text-3xl font-bold">Portfolio Page</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
@@ -19,4 +19,4 @@ const ProjectsPage: React.FC = () => {
   );
 };
 
-export default ProjectsPage;
+export default PortfolioPage;

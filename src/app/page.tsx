@@ -1,7 +1,12 @@
 const HomePage: React.FC = () => {
   return (
     <div>
-      <section id="projects" className="p-5"></section>
+      <div id="home" className="h-full">
+        <div className="py-8">
+          <h1 className="text-3xl font-bold">Home Page</h1>
+          {/* Sadržaj projekata */}
+        </div>
+      </div>
     </div>
   );
 };
