@@ -22,4 +22,3 @@ function NavLink({ link }: { link: INavLink }) {
 }
 
 export default NavLink;
-// fdasos
