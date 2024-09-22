@@ -2,8 +2,16 @@ import ProjectCard from "@/components/project-card";
 import { Project } from "@/lib/definitions";
 
 const projects: Project[] = [
-  { title: "Projekt 1", description: "Opis projekta 1", image: "/hero.png" },
-  { title: "Projekt 2", description: "Opis projekta 2", image: "/hero.png" },
+  {
+    title: "Projekt 1",
+    description: "Opis projekta 1",
+    image: "/images/hero.png",
+  },
+  {
+    title: "Projekt 2",
+    description: "Opis projekta 2",
+    image: "/images/hero.png",
+  },
 ];
 
 const PortfolioPage: React.FC = () => {

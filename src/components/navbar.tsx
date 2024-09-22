@@ -50,13 +50,18 @@ function Navbar() {
   const listVariant = {
     closed: {
       x: "100vw",
+      transition: {
+        type: "tween",
+        duration: 0.2,
+      },
     },
     opened: {
       x: 0,
       transition: {
-        ease: "easeInOut",
+        type: "tween",
+        duration: 0.2,
         when: "beforeChildren",
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -98,13 +103,23 @@ function Navbar() {
       {/* SOCIAL */}
       <div className="hidden md:flex gap-4 justify-end">
         <Link href="https://www.linkedin.com/in/antonio-vukalovic/">
-          <Image src="/linkedin.png" alt="LinkedIn" width={24} height={24} />
+          <Image
+            src="/images/linkedin.png"
+            alt="LinkedIn"
+            width={24}
+            height={24}
+          />
         </Link>
         <Link href="https://github.com/avukalov">
-          <Image src="/github.png" alt="Github" width={24} height={24} />
+          <Image src="/images/github.png" alt="Github" width={24} height={24} />
         </Link>
         <Link href="https://www.instagram.com/antoniovukalovic">
-          <Image src="/instagram.png" alt="Instagram" width={24} height={24} />
+          <Image
+            src="/images/instagram.png"
+            alt="Instagram"
+            width={24}
+            height={24}
+          />
         </Link>
       </div>
 

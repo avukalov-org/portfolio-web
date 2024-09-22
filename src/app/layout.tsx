@@ -3,6 +3,7 @@ import Navbar from "@/components/navbar";
 
 import localFont from "next/font/local";
 import "./globals.css";
+import TransitionProvider from "@/components/transtitionProvider";
 
 const geistSans = localFont({
   src: "../../public/fonts/GeistVF.woff",
@@ -30,16 +31,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="sticky top-0 bg-white shadow-lg h-16 md:h-20">
+        <TransitionProvider>{children}</TransitionProvider>
+        {/* <header className="sticky top-0 bg-white h-16 md:h-20 shadow-lg">
           <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
             <Navbar />
           </div>
         </header>
         <div className="h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)]">
-          <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
             {children}
-          </div>
-        </div>
+        </div> */}
       </body>
     </html>
   );
