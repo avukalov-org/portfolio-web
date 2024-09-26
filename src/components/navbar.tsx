@@ -5,7 +5,8 @@ import Link from "next/link";
 import { useState } from "react";
 import NavLink from "@/components/nav-link";
 import { NavLink as INavLink } from "@/lib/definitions";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import TransitionNavLink from "./transition-nav-link";
 
 const links: Array<INavLink> = [
   { url: "/", title: "Home" },
@@ -14,6 +15,11 @@ const links: Array<INavLink> = [
   { url: "/contact", title: "Contact" },
   { url: "/blog", title: "Blog" },
 ];
+
+interface NavbarProps {
+  onStart: () => void;
+  onExit: () => void;
+}
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -78,7 +84,14 @@ function Navbar() {
   };
 
   return (
-    <div className="h-full flex items-center justify-between text-xl">
+    <motion.div
+      initial={{ y: 25, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        duration: 0.75,
+      }}
+      className="h-full flex items-center justify-between text-xl"
+    >
       <div className="flex gap-8 justify-start">
         {/* LOGO */}
         <div className="md:hidden lg:flex">
@@ -95,7 +108,7 @@ function Navbar() {
         {/* LINKS */}
         <div className="hidden md:flex gap-6 justify-start">
           {links.map((link: any, index: number) => (
-            <NavLink link={link} key={index} />
+            <TransitionNavLink link={link} key={index} />
           ))}
         </div>
       </div>
@@ -149,23 +162,33 @@ function Navbar() {
 
         {/* MENU LIST */}
         {open && (
-          <motion.div
-            variants={listVariant}
-            initial="closed"
-            animate="opened"
-            className="absolute top-0 left-0 w-screen h-screen bg-white text-violet-950 flex flex-col items-center justify-center gap-8 text-4xl z-40"
-          >
-            {links.map((link: any, index: number) => (
-              <motion.div variants={listItemVariants} className="" key={index}>
-                <Link href={link.url} onClick={() => setOpen((prev) => !prev)}>
-                  {link.title}
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              variants={listVariant}
+              initial="closed"
+              animate="opened"
+              exit="closed"
+              className="absolute top-0 left-0 w-screen h-screen bg-white text-violet-950 flex flex-col items-center justify-center gap-8 text-4xl z-40"
+            >
+              {links.map((link: any, index: number) => (
+                <motion.div
+                  variants={listItemVariants}
+                  className=""
+                  key={index}
+                >
+                  <Link
+                    href={link.url}
+                    onClick={() => setOpen((prev) => !prev)}
+                  >
+                    {link.title}
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

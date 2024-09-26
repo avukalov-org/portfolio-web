@@ -15,12 +15,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   image,
 }) => {
   return (
-    <motion.div className="border rounded-lg p-4" whileHover={{ scale: 1.05 }}>
+    <motion.div className="border rounded-lg p-4" whileHover={{ scale: 0.95 }}>
       <Image
         src={image}
         alt={title}
-        width={300}
-        height={100}
+        width={200}
+        height={200}
         className="rounded-t-lg"
       />
       <h2 className="text-xl font-bold">{title}</h2>
