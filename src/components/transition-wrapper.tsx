@@ -15,7 +15,7 @@ const TransitionWrapper: React.FC<
       transition={{
         duration: 0.5,
       }}
-      className={className}
+      className={`h-full ${className}`}
     >
       {children}
     </motion.div>

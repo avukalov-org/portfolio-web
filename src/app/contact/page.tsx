@@ -1,17 +1,20 @@
 "use client";
 
-import TransitionWrapper from "@/components/transition-wrapper";
-import { motion } from "framer-motion";
+import ContactForm from "@/components/contact-form";
+import ContactInfo from "@/components/contact-info";
 
 const ContactPage: React.FC = () => {
   return (
-    <TransitionWrapper>
-      <div className="p-5">
-        <h1 className="text-3xl font-bold">Contact Page</h1>
-
-        {/* Sadržaj projekata */}
+    <div className="h-full py-8 px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48 lg:flex overflow-y-scroll">
+      <div className="w-full flex flex-col lg:flex-row-reverse gap-8">
+        <div className="h-full w-full lg:w-2/3 ">
+          <ContactForm />
+        </div>
+        <div className="h-full w-full lg:w-1/3 ">
+          <ContactInfo />
+        </div>
       </div>
-    </TransitionWrapper>
+    </div>
   );
 };
 
