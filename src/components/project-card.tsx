@@ -1,31 +1,34 @@
 "use client";
 
+import { ProjectItem } from "@/lib/definitions";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-interface ProjectCardProps {
-  title: string;
-  description: string;
-  image: string;
-}
-
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const ProjectCard: React.FC<ProjectItem> = ({
+  id,
+  color,
   title,
-  description,
-  image,
+  desc,
+  img,
+  link,
 }) => {
   return (
-    <motion.div className="border rounded-lg p-4" whileHover={{ scale: 0.95 }}>
-      <Image
-        src={image}
-        alt={title}
-        width={200}
-        height={200}
-        className="rounded-t-lg"
-      />
-      <h2 className="text-xl font-bold">{title}</h2>
-      <p>{description}</p>
-    </motion.div>
+    <div className="border rounded-lg bg-white shadow-lg">
+      <div className="w-full relative">
+        <Image
+          src={img}
+          alt={title}
+          fill
+          className="w-full h-full object-contain"
+        />
+        <div className="absolute top-0 right-0 bg-white bg-opacity-75 p-4 m-2 rounded-lg shadow-lg">
+          <h3 className="text-lg font-bold">Card Title</h3>
+          <p className="text-sm">This is some card content.</p>
+        </div>
+        {/* <h2 className="text-xl font-bold">{title}</h2>
+        <p>{desc}</p> */}
+      </div>
+    </div>
   );
 };
 
