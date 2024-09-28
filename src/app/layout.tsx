@@ -38,7 +38,7 @@ export default function RootLayout({
               <Navbar />
             </div>
           </header>
-          <div className="h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)] overflow-hidden bg-gradient-to-t from-violet-700 to-green-50 lg:bg-[radial-gradient(circle_at_right_bottom,_var(--tw-gradient-stops))] lg:from-violet-700 lg:via-green-200 lg:to-white">
+          <div className="h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)] overflow-hidden bg-gradient-to-t from-yellow-300 to-green-50 lg:bg-[radial-gradient(circle_at_right_bottom,_var(--tw-gradient-stops))] lg:from-violete-300 lg:via-green-200 lg:to-white">
             {children}
           </div>
         </LazyMotion>

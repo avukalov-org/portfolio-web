@@ -1,6 +1,6 @@
 "use client";
 
-import TransitionWrapper from "@/components/transition-wrapper";
+import TransitionWrapper from "@/components/page-transition-wrapper";
 import ProjectCard from "@/components/project-card";
 import { projects } from "@/lib/data";
 import { Project } from "@/lib/definitions";

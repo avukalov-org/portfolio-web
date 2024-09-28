@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { usePathname } from "next/navigation";
 import useMobileView from "@/lib/hooks/use-mobile-view";
 

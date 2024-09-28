@@ -3,7 +3,7 @@
 import Experience from "@/app/about/(components)/experience";
 import Skills from "@/app/about/(components)/skills";
 import Brain from "@/components/brain";
-import TransitionWrapper from "@/components/transition-wrapper";
+import TransitionWrapper from "@/components/page-transition-wrapper";
 // import ArrowDownSVG from "@/components/arrowDownSvg";
 // import Brain from "@/components/brain";
 // import PersonalSignature from "@/components/personalSignature";

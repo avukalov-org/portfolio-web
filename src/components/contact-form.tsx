@@ -119,7 +119,7 @@ const ContactForm = () => {
         <div className="w-full flex flex-row justify-end py-3 px-4">
           <button
             type="submit"
-            className="px-8 py-4 bg-gradient-to-br to-violet-400 from-green-400 rounded-md shadow-xl text-violet-950 font-semibold text-lg"
+            className="px-8 py-4 p-4 rounded-xl bg-gradient-to-b from-yellow-400 from-20% via-amber-500  to-orange-500 font-semibold text-lg"
           >
             {loading ? "Loading" : "Send"}
           </button>

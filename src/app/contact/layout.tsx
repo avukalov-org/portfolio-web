@@ -1,4 +1,4 @@
-import TransitionWrapper from "@/components/transition-wrapper";
+import TransitionWrapper from "@/components/page-transition-wrapper";
 import { Metadata } from "next";
 import React from "react";
 

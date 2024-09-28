@@ -1,11 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { m } from "framer-motion";
+import { animate, m } from "framer-motion";
 
-import TransitionWrapper from "@/components/transition-wrapper";
-import HomeButtons from "@/components/home-buttons";
+import TransitionWrapper from "@/components/page-transition-wrapper";
+import RainbowButton from "@/components/rainbow-button";
 import { useEffect, useState } from "react";
+import MotionWrapper from "@/components/motion-wrapper";
+import Link from "next/link";
 
 const HomePage: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -16,62 +18,30 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <TransitionWrapper className="h-full ">
+    <TransitionWrapper>
       <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
         <div className="h-full flex flex-col lg:flex-row-reverse">
           {/* IMAGE CONTAINER */}
-          <m.div
-            whileHover={{ scale: 0.85, rotate: "5deg" }}
-            className="h-1/2 lg:h-full lg:w-1/2 hidden relative lg:flex items-end justify-end "
-          >
+          <div className="h-1/2 lg:h-full lg:w-1/2 hidden relative lg:flex items-end justify-end ">
             <Image
               src="/images/coder.png"
               alt="My portrait"
               fill
               quality={100}
-              className="object-contain"
+              className="object-contain scale-110"
             />
-          </m.div>
+          </div>
 
           {/* TEXT CONTAINER */}
           <div className="h-full w-full lg:w-1/2 text-violet-900">
             <div className="h-full flex flex-col pt-12 lg:pt-0 justify-start lg:justify-center gap-4">
               <div className="text-4xl md:text-6xl lg:text-8xl font-bold text-center lg:text-start">
-                <m.h1
-                  initial={{ y: -50, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.1,
-                    ease: "easeInOut",
-                  }}
-                  className=""
-                >
-                  Hi! I am
-                </m.h1>
-                <m.h1
-                  initial={{ x: -100, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.15,
-                    ease: "easeInOut",
-                  }}
-                  className="text-green-600"
-                >
-                  Antonio Vukalović
-                </m.h1>
+                <h1 className="">Hi! I'am</h1>
+                <h1 className="bg-gradient-to-b from-amber-500 from-50% to-orange-500 bg-clip-text text-transparent">
+                  Antonio
+                </h1>
               </div>
-              <m.div
-                initial={{ x: 100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.2,
-                  ease: "easeInOut",
-                }}
-                className="text-xl md:text-2xl font-semibold text-center lg:text-start"
-              >
+              <div className="text-xl md:text-2xl font-semibold text-center lg:text-start">
                 <p className="2xl:hidden">
                   a passionate software developer with a strong foundation in
                   mathematics and computer science. Let's create something
@@ -85,9 +55,21 @@ const HomePage: React.FC = () => {
                   dynamic web applications or optimizing backend systems. Let's
                   create something amazing together!
                 </p>
-              </m.div>
+              </div>
               {/* BUTTONS */}
-              <HomeButtons />
+              <div className="pt-6 w-full flex flex-col sm:flex-row justify-center items-center lg:justify-start gap-4 md:gap-12">
+                <Link href="/portfolio" className="shadow-xl">
+                  <RainbowButton text="View My Work" />
+                </Link>
+                <Link href="/contact" className="shadow-xl">
+                  <m.button
+                    whileHover={!isMobile ? { scale: 1.1 } : {}}
+                    className="p-4 rounded-xl ring-2 ring-violet-900 text-violet-900"
+                  >
+                    Contact Me
+                  </m.button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
