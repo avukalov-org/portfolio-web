@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 function Skills({
   skills,
@@ -11,7 +11,7 @@ function Skills({
   return (
     <>
       {/* SKILL TITLE */}
-      <motion.h1
+      <m.h1
         initial={{
           opacity: 0,
           x: "-100px",
@@ -21,9 +21,9 @@ function Skills({
         className="font-bold text-2xl"
       >
         SKILLS
-      </motion.h1>
+      </m.h1>
       {/* SKILL LIST */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: "-100px" }}
         animate={isSkillRefInView ? { opacity: 1, x: 0 } : {}}
         transition={{
@@ -41,7 +41,7 @@ function Skills({
             {skill}
           </div>
         ))}
-      </motion.div>
+      </m.div>
     </>
   );
 }

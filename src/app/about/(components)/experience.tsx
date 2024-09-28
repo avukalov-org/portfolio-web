@@ -1,7 +1,7 @@
 "use client";
 
 import { ExperienceItem } from "@/lib/definitions";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Link from "next/link";
 
 function Experience({
@@ -14,17 +14,17 @@ function Experience({
   return (
     <>
       {/* EXPERIENCE TITLE */}
-      <motion.h1
+      <m.h1
         initial={{ opacity: 0, x: "-100px" }}
         animate={isExperienceInView ? { opacity: 1, x: 0 } : {}}
         transition={{ delay: 0.2 }}
         className="font-bold text-2xl"
       >
         EXPERIENCE
-      </motion.h1>
+      </m.h1>
 
       {/* EXPERIENCE LIST */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, x: "-100px" }}
         animate={isExperienceInView ? { opacity: 1, x: 0 } : {}}
         transition={{ delay: 0.3 }}
@@ -85,7 +85,7 @@ function Experience({
             )}
           </div>
         ))}
-      </motion.div>
+      </m.div>
     </>
   );
 }

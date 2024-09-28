@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -15,20 +15,20 @@ const HomeButtons: React.FC = () => {
   return (
     <div className="pt-6 w-full flex flex-col sm:flex-row justify-center items-center lg:justify-start gap-4 md:gap-12">
       <Link href="/portfolio">
-        <motion.button
+        <m.button
           whileHover={!isMobile ? { scale: 1.05, rotate: "5deg" } : {}}
           className="p-4 rounded-xl bg-gradient-to-br from-violet-700 to-green-300 text-white"
         >
           View My Work
-        </motion.button>
+        </m.button>
       </Link>
       <Link href="/contact">
-        <motion.button
+        <m.button
           whileHover={!isMobile ? { scale: 1.05, rotate: "5deg" } : {}}
           className="p-4 rounded-xl ring-2 ring-violet-900 text-violet-900"
         >
           Contact Me
-        </motion.button>
+        </m.button>
       </Link>
     </div>
   );

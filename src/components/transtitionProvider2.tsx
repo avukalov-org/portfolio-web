@@ -49,9 +49,7 @@ function TransitionProvider({
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
-        variants={!isMobile ? desktopVariants : mobileVariants}
-      ></motion.div>
+      <m.div variants={!isMobile ? desktopVariants : mobileVariants}></m.div>
       <header className="sticky top-0 bg-white h-16 md:h-20 shadow-lg">
         <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
           <Navbar />
@@ -60,7 +58,7 @@ function TransitionProvider({
       <div className="h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)]">
         {children}
       </div>
-      {/* <motion.div
+      {/* <m.div
         key={pathname}
         initial="initialState"
         animate={!isMobile ? "animateState" : "exitState"}
@@ -83,7 +81,7 @@ function TransitionProvider({
         }}
         className="w-full min-h-screen"
       >
-        <motion.div
+        <m.div
           key={pathname}
           initial="initialStatee"
           animate="animateStatee"
@@ -109,8 +107,8 @@ function TransitionProvider({
           className="w-full min-h-screen bg-gradient-to-t lg:bg-[radial-gradient(circle_at_right_bottom,_var(--tw-gradient-stops))] from-violet-950 via-green-200 to-white"
         >
           
-        </motion.div>
-      </motion.div> */}
+        </m.div>
+      </m.div> */}
     </AnimatePresence>
   );
 }

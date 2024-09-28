@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { m } from "framer-motion";
 
 import TransitionWrapper from "@/components/transition-wrapper";
 import HomeButtons from "@/components/home-buttons";
@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
       <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
         <div className="h-full flex flex-col lg:flex-row-reverse">
           {/* IMAGE CONTAINER */}
-          <motion.div
+          <m.div
             whileHover={{ scale: 0.85, rotate: "5deg" }}
             className="h-1/2 lg:h-full lg:w-1/2 hidden relative lg:flex items-end justify-end "
           >
@@ -31,13 +31,13 @@ const HomePage: React.FC = () => {
               quality={100}
               className="object-contain"
             />
-          </motion.div>
+          </m.div>
 
           {/* TEXT CONTAINER */}
           <div className="h-full w-full lg:w-1/2 text-violet-900">
             <div className="h-full flex flex-col pt-12 lg:pt-0 justify-start lg:justify-center gap-4">
               <div className="text-4xl md:text-6xl lg:text-8xl font-bold text-center lg:text-start">
-                <motion.h1
+                <m.h1
                   initial={{ y: -50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{
@@ -48,8 +48,8 @@ const HomePage: React.FC = () => {
                   className=""
                 >
                   Hi! I am
-                </motion.h1>
-                <motion.h1
+                </m.h1>
+                <m.h1
                   initial={{ x: -100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{
@@ -60,9 +60,9 @@ const HomePage: React.FC = () => {
                   className="text-green-600"
                 >
                   Antonio Vukalović
-                </motion.h1>
+                </m.h1>
               </div>
-              <motion.div
+              <m.div
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{
@@ -85,7 +85,7 @@ const HomePage: React.FC = () => {
                   dynamic web applications or optimizing backend systems. Let's
                   create something amazing together!
                 </p>
-              </motion.div>
+              </m.div>
               {/* BUTTONS */}
               <HomeButtons />
             </div>

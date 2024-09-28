@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import NavLink from "@/components/nav-link";
 import { NavLink as INavLink } from "@/lib/definitions";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import TransitionNavLink from "./transition-nav-link";
 
 const links: Array<INavLink> = [
@@ -84,7 +84,7 @@ function Navbar() {
   };
 
   return (
-    <motion.div
+    <m.div
       initial={{ y: 25, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
@@ -143,27 +143,27 @@ function Navbar() {
           className="w-8 h-6 flex flex-col justify-between z-50 relative"
           onClick={() => setOpen((prev) => !prev)}
         >
-          <motion.div
+          <m.div
             variants={topVariants}
             animate={open ? "opened" : "closed"}
             className="w-8 h-1 bg-violet-950 rounded origin-left"
-          ></motion.div>
-          <motion.div
+          ></m.div>
+          <m.div
             variants={centerVariants}
             animate={open ? "opened" : "closed"}
             className="w-8 h-1 bg-violet-950 rounded"
-          ></motion.div>
-          <motion.div
+          ></m.div>
+          <m.div
             variants={bottomVariants}
             animate={open ? "opened" : "closed"}
             className="w-8 h-1 bg-violet-950 rounded origin-left"
-          ></motion.div>
+          ></m.div>
         </button>
 
         {/* MENU LIST */}
         {open && (
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               variants={listVariant}
               initial="closed"
               animate="opened"
@@ -171,24 +171,20 @@ function Navbar() {
               className="absolute top-0 left-0 w-screen h-screen bg-white text-violet-950 flex flex-col items-center justify-center gap-8 text-4xl z-40"
             >
               {links.map((link: any, index: number) => (
-                <motion.div
-                  variants={listItemVariants}
-                  className=""
-                  key={index}
-                >
+                <m.div variants={listItemVariants} className="" key={index}>
                   <Link
                     href={link.url}
                     onClick={() => setOpen((prev) => !prev)}
                   >
                     {link.title}
                   </Link>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         )}
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 

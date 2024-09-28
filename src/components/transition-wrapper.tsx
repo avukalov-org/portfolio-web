@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { NodeProps } from "postcss";
 
 const TransitionWrapper: React.FC<
@@ -9,7 +9,7 @@ const TransitionWrapper: React.FC<
   }>
 > = ({ children, className = "" }) => {
   return (
-    <motion.div
+    <m.div
       initial={{ y: -25, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
@@ -18,7 +18,7 @@ const TransitionWrapper: React.FC<
       className={`h-full ${className}`}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 };
 

@@ -48,7 +48,7 @@ function TransitionProvider({
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
+      <m.div
         key={pathname}
         initial="initialState"
         animate="animateState"
@@ -59,7 +59,7 @@ function TransitionProvider({
         variants={!isMobile ? desktopVariants : mobileVariants}
         className="w-full min-h-screen"
       >
-        <motion.div
+        <m.div
           key={pathname}
           initial="initialStatee"
           animate="animateStatee"
@@ -85,8 +85,8 @@ function TransitionProvider({
           className="w-full min-h-screen bg-gradient-to-t lg:bg-[radial-gradient(circle_at_right_bottom,_var(--tw-gradient-stops))] from-violet-950 via-green-200 to-white"
         >
           {children}
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </AnimatePresence>
   );
 }

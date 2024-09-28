@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { domAnimation, LazyMotion } from "framer-motion";
+
 import Navbar from "@/components/navbar";
 
 import localFont from "next/font/local";
@@ -30,14 +32,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="sticky top-0 bg-white h-16 md:h-20 shadow-lg">
-          <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
-            <Navbar />
+        <LazyMotion strict features={domAnimation}>
+          <header className="sticky top-0 bg-white h-16 md:h-20 shadow-lg">
+            <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
+              <Navbar />
+            </div>
+          </header>
+          <div className="h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)] overflow-hidden bg-gradient-to-t from-violet-700 to-green-50 lg:bg-[radial-gradient(circle_at_right_bottom,_var(--tw-gradient-stops))] lg:from-violet-700 lg:via-green-200 lg:to-white">
+            {children}
           </div>
-        </header>
-        <div className="h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)] overflow-hidden bg-gradient-to-t from-violet-700 to-green-50 lg:bg-[radial-gradient(circle_at_right_bottom,_var(--tw-gradient-stops))] lg:from-violet-700 lg:via-green-200 lg:to-white">
-          {children}
-        </div>
+        </LazyMotion>
       </body>
     </html>
   );

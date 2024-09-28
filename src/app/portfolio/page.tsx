@@ -4,7 +4,7 @@ import TransitionWrapper from "@/components/transition-wrapper";
 import ProjectCard from "@/components/project-card";
 import { projects } from "@/lib/data";
 import { Project } from "@/lib/definitions";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -59,14 +59,14 @@ const PortfolioPage: React.FC = () => {
             className="flex flex-row bg-white rounded-lg shadow-2xl"
           >
             {/* IMAGE CONTAINER */}
-            <motion.div className="h-full w-1/2 relative ">
+            <m.div className="h-full w-1/2 relative ">
               <Image
                 src={item.img}
                 alt="My portrait"
                 fill
                 className="h-full object-cover"
               />
-            </motion.div>
+            </m.div>
 
             {/* TEXT CONTAINER */}
             <div className="h-full w-full lg:w-1/2 text-violet-900">

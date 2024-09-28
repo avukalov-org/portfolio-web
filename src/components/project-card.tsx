@@ -1,7 +1,7 @@
 "use client";
 
 import { ProjectItem } from "@/lib/definitions";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Image from "next/image";
 
 const ProjectCard: React.FC<ProjectItem> = ({
