@@ -1,22 +1,10 @@
-"use client";
-
+import Link from "next/link";
 import Image from "next/image";
-import { animate, m } from "framer-motion";
-
 import TransitionWrapper from "@/components/page-transition-wrapper";
 import RainbowButton from "@/components/rainbow-button";
-import { useEffect, useState } from "react";
 import MotionWrapper from "@/components/motion-wrapper";
-import Link from "next/link";
 
 const HomePage: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mobile = window.matchMedia("(max-width: 639px)").matches;
-    setIsMobile(mobile);
-  }, []);
-
   return (
     <TransitionWrapper>
       <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
@@ -59,15 +47,48 @@ const HomePage: React.FC = () => {
               {/* BUTTONS */}
               <div className="pt-6 w-full flex flex-col sm:flex-row justify-center items-center lg:justify-start gap-4 md:gap-12">
                 <Link href="/portfolio" className="shadow-xl">
-                  <RainbowButton text="View My Work" />
+                  <MotionWrapper
+                    whileHover={{ scale: 1.1 }}
+                    className="relative"
+                  >
+                    <div className="absolute -inset-5">
+                      <div className="w-full h-full max-w-sm mx-auto lg:mx-0 opacity-30 blur-lg bg-gradient-to-r from-yellow-400 via-pink-500 to-green-600"></div>
+                    </div>
+                    <a
+                      href="#"
+                      title=""
+                      className="relative z-10 inline-flex items-center justify-center w-full px-8 py-3 text-lg font-bold text-white transition-all duration-200 bg-gray-900 border-2 border-transparent sm:w-auto rounded-xl font-pj hover:bg-violet-950 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                      role="button"
+                    >
+                      View My Work
+                    </a>
+                  </MotionWrapper>
+                  {/* <RainbowButton text="View My Work" /> */}
                 </Link>
                 <Link href="/contact" className="shadow-xl">
-                  <m.button
+                  <MotionWrapper
+                    whileHover={{ scale: 1.1 }}
+                    className="relative"
+                  >
+                    <div className="absolute -inset-5">
+                      <div className="w-full h-full max-w-sm mx-auto lg:mx-0 opacity-30 blur-lg bg-gradient-to-r from-yellow-400 via-pink-500 to-green-600"></div>
+                    </div>
+                    <a
+                      href="#"
+                      title=""
+                      className="relative z-10 inline-flex items-center justify-center w-full px-8 py-3 text-lg font-bold text-black transition-all duration-200 bg-white bg-opacity-20 border-2 border-transparent sm:w-auto rounded-xl font-pj hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                      role="button"
+                    >
+                      View My Work
+                    </a>
+                  </MotionWrapper>
+                  {/* <RainbowButton text="Contact Me" /> */}
+                  {/* <m.button
                     whileHover={!isMobile ? { scale: 1.1 } : {}}
                     className="p-4 rounded-xl ring-2 ring-violet-900 text-violet-900"
                   >
                     Contact Me
-                  </m.button>
+                  </m.button> */}
                 </Link>
               </div>
             </div>
