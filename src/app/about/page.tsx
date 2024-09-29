@@ -5,6 +5,7 @@ import Skills from "@/app/about/(components)/skills";
 import Brain from "@/components/brain";
 import TransitionWrapper from "@/components/page-transition-wrapper";
 import ParallaxSection from "@/components/paralax-test";
+import ScrollingSkills from "@/components/scrolling-logos";
 // import ArrowDownSVG from "@/components/arrowDownSvg";
 // import Brain from "@/components/brain";
 // import PersonalSignature from "@/components/personalSignature";
@@ -59,79 +60,10 @@ const listItem2: ExperienceItem = {
 const expList: Array<ExperienceItem> = [listItem1, listItem2];
 
 function AboutPage() {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({ container: containerRef });
-
-  useEffect(() => {
-    console.log(scrollYProgress);
-  }, [scrollYProgress]);
-
-  const skillRef = useRef(null);
-  const isSkillRefInView = useInView(skillRef, {
-    margin: "50px",
-    //once: true,
-  });
-
-  const experienceRef = useRef(null);
-  const isExperienceInView = useInView(experienceRef, {
-    margin: "50px",
-    //once: true,
-  });
-
   return (
-    <div
-      className="h-full lg:flex lg:flex-col overflow-y-scroll"
-      ref={containerRef}
-    >
-      {/* TEXT CONTAINER */}
-      <div className="p-4 sm:p-8 md:p-12 lg:p-24 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 xl:w-1/2 lg:pr-0">
-        {/* BIOGRAPHY CONTAINER */}
-        <div className="flex flex-col gap-12 justify-center">
-          {/* BIOGRAPHY TITLE */}
-          <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
-          {/* BIOGRAPHY DESC */}
-          <p className="text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-            voluptatum consectetur earum! Similique, voluptas! Non rem
-            repudiandae ex distinctio officia eius sapiente minima eos totam
-            ipsam, voluptatum dolorum at aliquam.
-          </p>
-          {/* BIOGRAPHY QUOTE */}
-          <span className="italic">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </span>
-          {/* BIOGRAPHY SIGNATURE */}
-          {/* <PersonalSignature /> */}
-          {/* BIOGRAPHY SCROLL SVG */}
-          {/* <div className="">
-              <ArrowDownSVG width={50} height={50} />
-            </div> */}
-        </div>
-
-        {/* <ParallaxSection /> */}
-        {/* SKILLS CONTAINER */}
-        <div
-          className="flex flex-col relative gap-12 justify-center"
-          ref={skillRef}
-        >
-          <Skills skills={skills} isSkillRefInView={isSkillRefInView} />
-          {/* SKILL SCROLL SVG */}
-          {/* <div className="">
-              <ArrowDownSVG width={50} height={50} />
-            </div> */}
-        </div>
-        {/* EXPERIENCE CONTAINER */}
-        <div
-          className="flex flex-col gap-12 justify-center pb-48"
-          ref={experienceRef}
-        >
-          <Experience list={expList} isExperienceInView={isExperienceInView} />
-        </div>
-      </div>
-      {/* SVG CONTAINER */}
-      {/* <div className="hidden lg:block lg:w-1/3 sticky top-0 xl:w-1/2">
-          <Brain scrollYProgress={scrollYProgress} />
-        </div> */}
+    <div className="h-full flex flex-col justify-center items-center gap-24">
+      <h1 className="text-8xl font-bold">About Page</h1>
+      <ScrollingSkills />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 "use client";
+import ScrollingSkills from "@/components/scrolling-logos";
 import { m } from "framer-motion";
 
 function Skills({
