@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
               alt="My portrait"
               fill
               quality={100}
-              className="object-contain scale-110"
+              className="object-contain scale-110 opacity-85"
             />
           </div>
 
