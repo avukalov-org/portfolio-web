@@ -4,6 +4,7 @@ import Experience from "@/app/about/(components)/experience";
 import Skills from "@/app/about/(components)/skills";
 import Brain from "@/components/brain";
 import TransitionWrapper from "@/components/page-transition-wrapper";
+import ParallaxSection from "@/components/paralax-test";
 // import ArrowDownSVG from "@/components/arrowDownSvg";
 // import Brain from "@/components/brain";
 // import PersonalSignature from "@/components/personalSignature";
@@ -106,6 +107,8 @@ function AboutPage() {
               <ArrowDownSVG width={50} height={50} />
             </div> */}
         </div>
+
+        {/* <ParallaxSection /> */}
         {/* SKILLS CONTAINER */}
         <div
           className="flex flex-col relative gap-12 justify-center"
