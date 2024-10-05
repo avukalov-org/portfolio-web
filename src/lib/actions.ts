@@ -53,3 +53,24 @@ export async function sendEmail(
     return error;
   }
 }
+
+export async function getProjects() {
+  const response = await fetch(
+    // `${process.env.STRAPI_API_URL!}/projects?filters[isPublic][$eq]=true`,
+    `${process.env.STRAPI_API_URL!}/projects`,
+    {
+      // This will allow cache to stay for 1 month and revalidate every 2 weeks
+      next: { revalidate: 1209600 }, // Revalidate after 2 weeks (in the background)
+      headers: {
+        "Cache-Control":
+          "public, max-age=2592000, stale-while-revalidate=1209600",
+        "Authorization": `Bearer ${process.env.STRAPI_API_TOKEN}`,
+        // Cache for 1 month (2592000 seconds) and allow stale data while revalidating every 2 weeks
+      },
+    }
+  );
+
+  const { data, meta } = await response.json();
+
+  return { projects: data, pagination: meta.pagination };
+}
