@@ -1,0 +1,28 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: ['master']
+
+jobs:
+  build:
+    runs-on: [self-hosted, arm64]
+
+    steps:
+      # Checkout the code from the repository
+      - uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USER }}" --password-stdin
+
+      - name: Build and tag the Docker image
+        run: |
+          docker build . \
+            --file Dockerfile \
+            --tag avukalov/portfolio:latest \
+            --build-arg STRAPI_API_URL_ARG=${{ secrets.STRAPI_API_URL }} \
+            --build-arg STRAPI_API_TOKEN_ARG=${{ secrets.STRAPI_API_TOKEN }} \
+
+      - name: Push the Docker image
+        run: |
+          docker push avukalov/portfolio:latest
