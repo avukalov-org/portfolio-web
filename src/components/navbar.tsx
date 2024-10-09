@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-import NavLink from "@/components/nav-link";
-import { NavLink as INavLink } from "@/lib/definitions";
-import { AnimatePresence, m } from "framer-motion";
-import TransitionNavLink from "./transition-nav-link";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import NavLink from '@/components/nav-link';
+import { NavLink as INavLink } from '@/lib/definitions';
+import { AnimatePresence, m } from 'framer-motion';
+import TransitionNavLink from './transition-nav-link';
 
 const links: Array<INavLink> = [
-  { url: "/", title: "Home" },
-  { url: "/about", title: "About" },
-  { url: "/portfolio", title: "Portfolio" },
-  { url: "/contact", title: "Contact" },
-  { url: "/blog", title: "Blog" },
+  { url: '/', title: 'Home' },
+  { url: '/about', title: 'About' },
+  { url: '/portfolio', title: 'Portfolio' },
+  { url: '/contact', title: 'Contact' },
+  { url: '/blog', title: 'Blog' },
 ];
 
 interface NavbarProps {
@@ -30,7 +30,7 @@ function Navbar() {
     },
     opened: {
       rotate: 45,
-      backgroundColor: "rgb(46, 16, 101)",
+      backgroundColor: 'rgb(46, 16, 101)',
     },
   };
 
@@ -49,24 +49,24 @@ function Navbar() {
     },
     opened: {
       rotate: -45,
-      backgroundColor: "rgb(46, 16, 101)",
+      backgroundColor: 'rgb(46, 16, 101)',
     },
   };
 
   const listVariant = {
     closed: {
-      x: "100vw",
+      x: '100vw',
       transition: {
-        type: "tween",
+        type: 'tween',
         duration: 0.2,
       },
     },
     opened: {
       x: 0,
       transition: {
-        type: "tween",
+        type: 'tween',
         duration: 0.2,
-        when: "beforeChildren",
+        when: 'beforeChildren',
         staggerChildren: 0.1,
       },
     },
@@ -90,23 +90,23 @@ function Navbar() {
       transition={{
         duration: 0.75,
       }}
-      className="h-full flex items-center justify-between text-xl"
+      className="flex h-full items-center justify-between text-xl"
     >
-      <div className="flex gap-8 justify-start">
+      <div className="flex justify-start gap-8">
         {/* LOGO */}
         <div className="md:hidden lg:flex">
           <Link
             href="/"
-            className="text-sm bg-violet-950 rounded-md p-1 font-semibold flex items-center justify-center"
+            className="flex items-center justify-center rounded-md bg-violet-950 p-1 text-sm font-semibold"
           >
-            <span className="text-white px-1 mr-1">avukalov</span>
-            <span className="w-12 h-8 rounded bg-white text-violet-950 flex items-center justify-center">
+            <span className="mr-1 px-1 text-white">avukalov</span>
+            <span className="flex h-8 w-12 items-center justify-center rounded bg-white text-violet-950">
               .com
             </span>
           </Link>
         </div>
         {/* LINKS */}
-        <div className="hidden md:flex gap-6 justify-start">
+        <div className="hidden justify-start gap-6 md:flex">
           {links.map((link: any, index: number) => (
             <TransitionNavLink link={link} key={index} />
           ))}
@@ -114,49 +114,55 @@ function Navbar() {
       </div>
 
       {/* SOCIAL */}
-      <div className="hidden md:flex gap-4 justify-end">
-        <Link href="https://www.linkedin.com/in/antonio-vukalovic/">
+      <div className="hidden justify-end gap-4 md:flex">
+        <Link href="https://github.com/avukalov">
           <Image
-            src="/images/linkedin.png"
-            alt="LinkedIn"
-            width={24}
-            height={24}
+            src="/images/skills/github.svg"
+            alt="Github"
+            width={30}
+            height={30}
           />
         </Link>
-        <Link href="https://github.com/avukalov">
-          <Image src="/images/github.png" alt="Github" width={24} height={24} />
+        {/* <Link href="https://www.linkedin.com/in/antonio-vukalovic/">
+          <Image
+            src="/images/skills/linkedin.svg"
+            alt="LinkedIn"
+            width={30}
+            height={30}
+          />
         </Link>
+
         <Link href="https://www.instagram.com/antoniovukalovic">
           <Image
-            src="/images/instagram.png"
+            src="/images/skills/instagram.svg"
             alt="Instagram"
-            width={24}
-            height={24}
+            width={30}
+            height={30}
           />
-        </Link>
+        </Link> */}
       </div>
 
       {/* RESPONSIVE MENU */}
       <div className="md:hidden">
         {/* MENU BUTTON */}
         <button
-          className="w-8 h-6 flex flex-col justify-between z-50 relative"
+          className="relative z-50 flex h-6 w-8 flex-col justify-between"
           onClick={() => setOpen((prev) => !prev)}
         >
           <m.div
             variants={topVariants}
-            animate={open ? "opened" : "closed"}
-            className="w-8 h-1 bg-violet-950 rounded origin-left"
+            animate={open ? 'opened' : 'closed'}
+            className="h-1 w-8 origin-left rounded bg-violet-950"
           ></m.div>
           <m.div
             variants={centerVariants}
-            animate={open ? "opened" : "closed"}
-            className="w-8 h-1 bg-violet-950 rounded"
+            animate={open ? 'opened' : 'closed'}
+            className="h-1 w-8 rounded bg-violet-950"
           ></m.div>
           <m.div
             variants={bottomVariants}
-            animate={open ? "opened" : "closed"}
-            className="w-8 h-1 bg-violet-950 rounded origin-left"
+            animate={open ? 'opened' : 'closed'}
+            className="h-1 w-8 origin-left rounded bg-violet-950"
           ></m.div>
         </button>
 
@@ -168,7 +174,7 @@ function Navbar() {
               initial="closed"
               animate="opened"
               exit="closed"
-              className="absolute top-0 left-0 w-screen h-screen bg-white text-violet-950 flex flex-col items-center justify-center gap-8 text-4xl z-40"
+              className="absolute left-0 top-0 z-40 flex h-screen w-screen flex-col items-center justify-center gap-8 bg-white text-4xl text-violet-950"
             >
               {links.map((link: any, index: number) => (
                 <m.div variants={listItemVariants} className="" key={index}>

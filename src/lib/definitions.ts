@@ -22,6 +22,12 @@ export interface ExperienceItem {
   };
 }
 
+export interface Tag {
+  id: number;
+  documentId: string;
+  name: string;
+}
+
 export interface Project {
   id: number;
   documentId: string;
@@ -34,7 +40,10 @@ export interface Project {
   locale: any;
   sourceUrl: string;
   liveUrl: string;
+  liveUser: string;
+  livePassword: string;
   isPublic: boolean;
+  tags: Tag[];
 }
 
 export interface Pagination {
