@@ -31,8 +31,8 @@ COPY --from=deps /app/node_modules ./node_modules
 # Copy application source code
 COPY . .
 
-ARG STRAPI_API_URL_ARG=""
-ARG STRAPI_API_TOKEN_ARG=""
+ARG STRAPI_API_URL_ARG
+ARG STRAPI_API_TOKEN_ARG
 
 ENV STRAPI_API_URL=$STRAPI_API_URL_ARG
 ENV STRAPI_API_TOKEN=$STRAPI_API_TOKEN_ARG
@@ -52,6 +52,6 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
-EXPOSE 3000
+EXPOSE 3001
 
 CMD ["node", "server.js"]
