@@ -22,6 +22,12 @@ export interface ExperienceItem {
   };
 }
 
+export interface Skills {
+  id: number;
+  name: string;
+  src: string;
+}
+
 export interface Tag {
   id: number;
   documentId: string;
@@ -37,7 +43,7 @@ export interface Project {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  locale: any;
+  locale: string;
   sourceUrl: string;
   liveUrl: string;
   liveUser: string;

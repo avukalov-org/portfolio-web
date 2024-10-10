@@ -1,6 +1,6 @@
-"use client";
-import Link from "next/link";
-import { MotionValue, motion, useTransform } from "framer-motion";
+'use client';
+import Link from 'next/link';
+import { m, MotionValue, useTransform } from 'framer-motion';
 
 function Brain({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
   const rotatesForward1 = useTransform(scrollYProgress, [0, 1], [0, 360]);
@@ -13,7 +13,7 @@ function Brain({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
   const rotatesBackward4 = useTransform(scrollYProgress, [0, 1], [0, -45]);
 
   return (
-    <div className="w-full h-full opacity-65">
+    <div className="h-full w-full opacity-65">
       <svg width="100%" height="100%">
         <defs>
           <path d="M.416.37V.366L.417.345V.37" id="path-1" />

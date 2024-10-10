@@ -1,13 +1,13 @@
-"use client";
-import { AnimatePresence, m } from "framer-motion";
-import MotionWrapper from "./motion-wrapper";
+'use client';
+import { AnimatePresence } from 'framer-motion';
+import MotionWrapper from './motion-wrapper';
 
 const PageTransitionWrapper: React.FC<
   Readonly<{
     children: React.ReactNode;
     className?: string;
   }>
-> = ({ children, className = "" }) => {
+> = ({ children, className = '' }) => {
   return (
     <AnimatePresence mode="wait">
       <MotionWrapper
@@ -15,7 +15,7 @@ const PageTransitionWrapper: React.FC<
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -50, opacity: 0 }}
         transition={{
-          type: "spring",
+          type: 'spring',
           duration: 0.8,
         }}
         className={`h-full ${className}`}

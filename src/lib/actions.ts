@@ -63,7 +63,7 @@ export async function getProjects() {
     `${process.env.STRAPI_API_URL!}/projects?filters[isPublic][$eq]=true&populate=tags&order=priority`,
     {
       // This will allow cache to stay for 1 month and revalidate every 2 weeks
-      next: { revalidate: 1209600 }, // Revalidate after 2 weeks (in the background)
+      // next: { revalidate: 1209600 }, // Revalidate after 2 weeks (in the background)
       headers: {
         // 'Cache-Control':
         //   'public, max-age=2592000, stale-while-revalidate=1209600',
@@ -74,6 +74,7 @@ export async function getProjects() {
   );
 
   const { data, meta } = await response.json();
+  console.log(data, meta);
 
   return { projects: data, pagination: meta.pagination };
 }

@@ -1,56 +1,54 @@
-"use client";
+'use client';
 
-import React from "react";
-import Navbar from "@/components/navbar";
-import { AnimatePresence, m } from "framer-motion";
-import { usePathname } from "next/navigation";
-import useMobileView from "@/lib/hooks/use-mobile-view";
+import React from 'react';
+import Navbar from '@/components/navbar';
+import { AnimatePresence, m } from 'framer-motion';
+import useMobileView from '@/lib/hooks/use-mobile-view';
 
 function TransitionProvider({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pathname = usePathname();
   const isMobile = useMobileView();
   console.log(`transtionProvider:  ${!isMobile}`);
   console.log(
-    `transtionProvider:  ${!isMobile ? "animateState" : "exitState"}`
+    `transtionProvider:  ${!isMobile ? 'animateState' : 'exitState'}`,
   );
 
   const desktopVariants = {
     initialState: {
       opacity: 0,
-      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+      clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
     },
     animateState: {
       opacity: 1,
-      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+      clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
     },
     exitState: {
-      clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+      clipPath: 'polygon(50% 0, 50% 0, 50% 100%, 50% 100%)',
     },
   };
 
   const mobileVariants = {
     initialState: {
       opacity: 0,
-      clipPath: "polygon(0 0, 0% 0, 0% 100%, 0 100%)", // Zatvoreno s lijeva
+      clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)', // Zatvoreno s lijeva
     },
     animateState: {
       opacity: 1,
-      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", // Otvara se prema desno
+      clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)', // Otvara se prema desno
     },
     exitState: {
       opacity: 0,
-      clipPath: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)", // Zatvara se prema desno
+      clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)', // Zatvara se prema desno
     },
   };
 
   return (
     <AnimatePresence mode="wait">
       <m.div variants={!isMobile ? desktopVariants : mobileVariants}></m.div>
-      <header className="sticky top-0 bg-white h-16 md:h-20 shadow-lg">
+      <header className="sticky top-0 h-16 bg-white shadow-lg md:h-20">
         <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
           <Navbar />
         </div>

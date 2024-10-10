@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import NavLink from '@/components/nav-link';
 import { NavLink as INavLink } from '@/lib/definitions';
 import { AnimatePresence, m } from 'framer-motion';
 import TransitionNavLink from './transition-nav-link';
@@ -15,11 +14,6 @@ const links: Array<INavLink> = [
   { url: '/contact', title: 'Contact' },
   { url: '/blog', title: 'Blog' },
 ];
-
-interface NavbarProps {
-  onStart: () => void;
-  onExit: () => void;
-}
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -107,7 +101,7 @@ function Navbar() {
         </div>
         {/* LINKS */}
         <div className="hidden justify-start gap-6 md:flex">
-          {links.map((link: any, index: number) => (
+          {links.map((link: INavLink, index: number) => (
             <TransitionNavLink link={link} key={index} />
           ))}
         </div>
@@ -123,23 +117,6 @@ function Navbar() {
             height={30}
           />
         </Link>
-        {/* <Link href="https://www.linkedin.com/in/antonio-vukalovic/">
-          <Image
-            src="/images/skills/linkedin.svg"
-            alt="LinkedIn"
-            width={30}
-            height={30}
-          />
-        </Link>
-
-        <Link href="https://www.instagram.com/antoniovukalovic">
-          <Image
-            src="/images/skills/instagram.svg"
-            alt="Instagram"
-            width={30}
-            height={30}
-          />
-        </Link> */}
       </div>
 
       {/* RESPONSIVE MENU */}
@@ -176,7 +153,7 @@ function Navbar() {
               exit="closed"
               className="absolute left-0 top-0 z-40 flex h-screen w-screen flex-col items-center justify-center gap-8 bg-white text-4xl text-violet-950"
             >
-              {links.map((link: any, index: number) => (
+              {links.map((link: INavLink, index: number) => (
                 <m.div variants={listItemVariants} className="" key={index}>
                   <Link
                     href={link.url}

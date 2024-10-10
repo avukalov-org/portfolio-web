@@ -1,6 +1,6 @@
-"use client";
-import ScrollingSkills from "@/components/scrolling-logos";
-import { m } from "framer-motion";
+'use client';
+
+import { m } from 'framer-motion';
 
 function Skills({
   skills,
@@ -15,29 +15,29 @@ function Skills({
       <m.h1
         initial={{
           opacity: 0,
-          x: "-100px",
+          x: '-100px',
         }}
         animate={isSkillRefInView ? { opacity: 1, x: 0 } : {}}
         transition={{ delay: 0.2 }}
-        className="font-bold text-2xl"
+        className="text-2xl font-bold"
       >
         SKILLS
       </m.h1>
       {/* SKILL LIST */}
       <m.div
-        initial={{ opacity: 0, x: "-100px" }}
+        initial={{ opacity: 0, x: '-100px' }}
         animate={isSkillRefInView ? { opacity: 1, x: 0 } : {}}
         transition={{
           delay: 0.3,
-          when: "beforeChildren",
+          when: 'beforeChildren',
           staggerChildren: 0.2,
         }}
-        className="flex gap-4 flex-wrap"
+        className="flex flex-wrap gap-4"
       >
         {skills.map((skill: string, index: number) => (
           <div
             key={index}
-            className="rounded p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black select-none"
+            className="cursor-pointer select-none rounded bg-black p-2 text-sm text-white hover:bg-white hover:text-black"
           >
             {skill}
           </div>
