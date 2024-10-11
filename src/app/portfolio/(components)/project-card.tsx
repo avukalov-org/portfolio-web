@@ -12,7 +12,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     >
       <div className="relative flex h-1/2 w-full justify-center lg:h-full lg:w-1/2">
         <Image
-          priority={false}
+          priority={true}
           src={project.image.url}
           alt={project.title}
           width={600}
