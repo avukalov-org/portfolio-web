@@ -2,14 +2,11 @@
 const nextConfig = {
   output: 'standalone',
   images: {
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.pexels.com',
-      },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
+        hostname: 'eu-west-2.graphassets.com',
       },
     ],
   },

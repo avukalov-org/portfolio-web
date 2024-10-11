@@ -12,7 +12,8 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     >
       <div className="relative flex h-1/2 w-full justify-center lg:h-full lg:w-1/2">
         <Image
-          src={project.image}
+          priority={false}
+          src={project.image.url}
           alt={project.title}
           width={600}
           height={600}
@@ -49,13 +50,13 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               <div className="flex h-full flex-row flex-wrap justify-center gap-8 rounded-xl p-8 lg:justify-end lg:self-end lg:p-4">
                 {project.tags.map((tag: Tag) => (
                   <MotionWrapper
-                    key={tag.documentId}
+                    key={tag.id}
                     whileHover={{
                       scale: 1.5,
                     }}
                   >
                     <Image
-                      src={`/images/skills/${tag.name.toLowerCase()}.svg`}
+                      src={tag.image.url}
                       alt={tag.name}
                       height={30}
                       width={30}

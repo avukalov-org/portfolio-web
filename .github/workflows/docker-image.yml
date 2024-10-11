@@ -20,8 +20,7 @@ jobs:
           docker build . \
             --file Dockerfile \
             --tag avukalov/portfolio-web:latest \
-            --build-arg STRAPI_API_URL_ARG=${{ secrets.STRAPI_API_URL }} \
-            --build-arg STRAPI_API_TOKEN_ARG=${{ secrets.STRAPI_API_TOKEN }} \
+            --build-arg NEXT_HYGRAPH_ENDPOINT_ARG=${{ secrets.NEXT_HYGRAPH_ENDPOINT }} \
 
       - name: Push the Docker image
         run: |

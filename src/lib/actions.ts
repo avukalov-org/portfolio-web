@@ -1,7 +1,8 @@
 'use server';
 
-import { unstable_noStore } from 'next/cache';
+// import { unstable_noStore as noSort } from 'next/cache';
 import { Client, LibraryResponse, SendEmailV3_1 } from 'node-mailjet';
+import { Project } from './definitions';
 
 export async function sendEmail(
   fullname: string,
@@ -56,25 +57,47 @@ export async function sendEmail(
 }
 
 export async function getProjects() {
-  unstable_noStore();
-
-  const response = await fetch(
-    // `${process.env.STRAPI_API_URL!}/projects?filters[isPublic][$eq]=true`,
-    `${process.env.STRAPI_API_URL!}/projects?filters[isPublic][$eq]=true&populate=tags&order=priority`,
-    {
-      // This will allow cache to stay for 1 month and revalidate every 2 weeks
-      // next: { revalidate: 1209600 }, // Revalidate after 2 weeks (in the background)
-      headers: {
-        // 'Cache-Control':
-        //   'public, max-age=2592000, stale-while-revalidate=1209600',
-        Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
-        // Cache for 1 month (2592000 seconds) and allow stale data while revalidating every 2 weeks
-      },
+  const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT!, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
     },
-  );
+    body: JSON.stringify({
+      query: `
+        query Projects {
+          projects(where: {isPublic: false}, orderBy: priority_ASC) {
+            id
+            title
+            slug
+            description
+            isPublic
+            sourceUrl
+            liveUrl
+            liveUser
+            livePassword
+            priority
+            updatedAt
+            image {
+              id
+              url
+            }
+            tags {
+              id
+              name
+              image {
+                id
+                url
+              }
+            }
+          }
+        }
+      `,
+    }),
+  });
+  const json = await response.json();
 
-  const { data, meta } = await response.json();
-  console.log(data, meta);
+  const projects = json.data.projects as Project[];
+  console.log(projects, projects[0].tags[0]);
 
-  return { projects: data, pagination: meta.pagination };
+  return projects;
 }

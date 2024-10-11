@@ -28,27 +28,30 @@ export interface Skills {
   src: string;
 }
 
+export interface Asset {
+  id: string;
+  url: string;
+}
+
 export interface Tag {
   id: number;
-  documentId: string;
   name: string;
+  image: Asset;
 }
 
 export interface Project {
   id: number;
-  documentId: string;
   title: string;
+  slug: string;
   description: string;
-  image: string;
-  createdAt: string;
+  image: Asset;
   updatedAt: string;
-  publishedAt: string;
-  locale: string;
   sourceUrl: string;
   liveUrl: string;
   liveUser: string;
   livePassword: string;
   isPublic: boolean;
+  priority: number;
   tags: Tag[];
 }
 
