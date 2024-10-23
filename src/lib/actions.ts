@@ -69,7 +69,7 @@ export async function getProjects() {
     body: JSON.stringify({
       query: `
         query Projects {
-          projects(where: {isPublic: false}, orderBy: priority_ASC) {
+          projects(where: {isPublic: true}, orderBy: priority_ASC) {
             id
             title
             slug
