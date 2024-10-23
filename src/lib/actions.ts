@@ -3,7 +3,7 @@
 // import { unstable_noStore as noSort } from 'next/cache';
 import { Client, LibraryResponse, SendEmailV3_1 } from 'node-mailjet';
 import { Project } from './definitions';
-import { unstable_noStore as noSort } from 'next/cache';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export async function sendEmail(
   fullname: string,
@@ -58,12 +58,13 @@ export async function sendEmail(
 }
 
 export async function getProjects() {
-  noSort();
+  noStore();
 
   const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT!, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache',
     },
     body: JSON.stringify({
       query: `
@@ -101,6 +102,10 @@ export async function getProjects() {
 
   const projects = json.data.projects as Project[];
   console.log(projects, projects[0].tags[0]);
+  const project = projects[0];
+  console.info(project.title);
+  console.info(project.liveUrl);
+  console.info(project.sourceUrl);
 
   return projects;
 }
