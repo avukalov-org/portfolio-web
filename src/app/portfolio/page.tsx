@@ -3,8 +3,6 @@ import MotionWrapper from '@/components/motion-wrapper';
 import { getProjects } from '@/lib/actions';
 import { Project } from '@/lib/definitions';
 
-export const fetchCache = 'force-no-store';
-
 const PortfolioPage: React.FC = async () => {
   const projects = await getProjects();
 
