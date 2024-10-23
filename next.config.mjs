@@ -10,6 +10,17 @@ const nextConfig = {
       },
     ],
   },
+  headers: () => [
+    {
+      source: '/portfolio',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'no-store',
+        },
+      ],
+    },
+  ],
 };
 
 export default nextConfig;

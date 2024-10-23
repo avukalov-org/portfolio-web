@@ -62,6 +62,7 @@ export async function getProjects() {
 
   const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT!, {
     method: 'POST',
+    cache: 'no-cache',
     headers: {
       'Content-Type': 'application/json',
     },
