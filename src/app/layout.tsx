@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+
 import { domAnimation, LazyMotion } from 'framer-motion';
 
 import Navbar from '@/components/navbar';
