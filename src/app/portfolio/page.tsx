@@ -1,6 +1,5 @@
 import ProjectCard from '@/app/portfolio/(components)/project-card';
 import MotionWrapper from '@/components/motion-wrapper';
-import { getProjects } from '@/lib/actions';
 import { Project } from '@/lib/definitions';
 
 const PortfolioPage: React.FC = async () => {
