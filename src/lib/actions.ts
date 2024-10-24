@@ -64,7 +64,6 @@ export async function getProjects() {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Cache-Control': 'no-cache',
     },
     body: JSON.stringify({
       query: `
@@ -101,7 +100,7 @@ export async function getProjects() {
   const json = await response.json();
 
   const projects = json.data.projects as Project[];
-  console.log(projects, projects[0].tags[0]);
+
   const project = projects[0];
   console.info(project.title);
   console.info(project.liveUrl);

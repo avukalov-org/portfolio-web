@@ -18,6 +18,7 @@ jobs:
       - name: Build and tag the Docker image
         run: |
           docker build . \
+            --no-cache \
             --file Dockerfile \
             --tag avukalov/portfolio-web:latest \
             --build-arg NEXT_HYGRAPH_ENDPOINT_ARG=${{ secrets.NEXT_HYGRAPH_ENDPOINT }} \
