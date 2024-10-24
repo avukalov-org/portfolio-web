@@ -1,5 +1,5 @@
 # Stage 1: Base image
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 
 # Install libc6-compat for compatibility if needed
 RUN apk add --no-cache libc6-compat
