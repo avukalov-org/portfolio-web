@@ -1,10 +1,10 @@
 import ProjectCard from '@/app/portfolio/(components)/project-card';
 import MotionWrapper from '@/components/motion-wrapper';
+import { getProjects } from '@/lib/actions';
 import { Project } from '@/lib/definitions';
 
 const PortfolioPage: React.FC = async () => {
-  // const projects = await getProjects();
-  const projects: Project[] = [];
+  const projects = await getProjects();
 
   return (
     <div className="h-[calc(100vh-4rem)] overflow-y-auto px-4 sm:px-8 md:h-[calc(100vh-5rem)] md:px-12 lg:px-24 xl:px-48">
