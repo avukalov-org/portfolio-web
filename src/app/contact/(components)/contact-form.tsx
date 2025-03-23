@@ -36,8 +36,7 @@ const ContactForm = () => {
     );
   };
 
-  const textareaPlaceholder =
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi reiciendis accusamus provident culpa natus explicabo voluptatum nostrum quisquam nesciunt obcaecati? Id fuga ea quaerat provident exercitationem laudantium sunt inventore sint ut, harum placeat eos fugit, dolore sed saepe dolorem nihil doloremque! Deserunt dolores veritatis quibusdam voluptate dignissimos omnis error sapiente?';
+  
   return (
     <form
       ref={form}
