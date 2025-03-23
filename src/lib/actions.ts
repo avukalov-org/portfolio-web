@@ -57,14 +57,13 @@ export async function sendEmail(
 }
 
 export async function getProjects() {
-  const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT!, {
+  const response = await fetch(`${process.env.NEXT_HYGRAPH_ENDPOINT!}?no-cache=${Date.now()}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache',
     },
     body: JSON.stringify({
-      fetchPolicy: "no-cache",
       query: `
         query Projects {
           projects(where: {isPublic: true}, orderBy: priority_ASC) {
