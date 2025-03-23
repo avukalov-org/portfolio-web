@@ -12,7 +12,7 @@ const links: Array<INavLink> = [
   { url: '/about', title: 'About' },
   { url: '/portfolio', title: 'Portfolio' },
   { url: '/contact', title: 'Contact' },
-  { url: '/blog', title: 'Blog' },
+  // { url: '/blog', title: 'Blog' },
 ];
 
 function Navbar() {
