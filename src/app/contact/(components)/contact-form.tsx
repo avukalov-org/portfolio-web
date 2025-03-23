@@ -113,7 +113,7 @@ const ContactForm = () => {
           id="contact-message"
           rows={15}
           name="contactMessage"
-          placeholder={textareaPlaceholder}
+          placeholder={"Enter your message here..."}
           required
         />
       </div>

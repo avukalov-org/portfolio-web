@@ -64,6 +64,7 @@ export async function getProjects() {
       'Cache-Control': 'no-cache',
     },
     body: JSON.stringify({
+      fetchPolicy: "no-cache",
       query: `
         query Projects {
           projects(where: {isPublic: true}, orderBy: priority_ASC) {

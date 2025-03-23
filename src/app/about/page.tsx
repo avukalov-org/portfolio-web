@@ -35,8 +35,8 @@ import ScrollingSkills from '@/components/scrolling-logos';
 //   desc: 'I work on small projects for friends and myself using Next.js',
 //   date: 'Dec 2023 - Present',
 //   company: {
-//     url: 'https://portfolio-sigma-eight-22.vercel.app/',
-//     name: 'avukalov.dev',
+//     url: 'https://avukalov.com',
+//     name: 'avukalov.com',
 //   },
 // };
 
@@ -55,7 +55,7 @@ import ScrollingSkills from '@/components/scrolling-logos';
 function AboutPage() {
   return (
     <div className="flex h-full flex-col items-center justify-center gap-24">
-      <h1 className="text-8xl font-bold">About Page</h1>
+      {/* <h1 className="text-8xl font-bold">About Page</h1> */}
       <ScrollingSkills />
     </div>
   );

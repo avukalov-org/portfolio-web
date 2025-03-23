@@ -17,6 +17,7 @@ const PortfolioPage: React.FC = async () => {
         <div className="flex h-full w-full flex-col items-center justify-center gap-8 overflow-x-hidden pb-8 md:pb-12 lg:gap-24">
           {projects.map((project: Project, index: number) => (
             <MotionWrapper
+              className='w-full 3xl:w-3/4'
               key={project.slug}
               initial={{ opacity: 0, x: index % 2 == 0 ? -100 : 100 }}
               animate={{ opacity: 1, x: 0 }}

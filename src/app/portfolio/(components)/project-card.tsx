@@ -30,12 +30,12 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
           <div className="flex h-full w-full flex-col gap-4 lg:flex-row lg:gap-8">
             <div className="flex h-full w-full flex-col-reverse gap-4 lg:w-1/2 lg:flex-col lg:gap-8">
-              <MotionWrapper whileHover={{ y: -5 }}>
+              <MotionWrapper whileHover={project.sourceUrl != "" ? { y: -5 } : undefined}>
                 <Link
                   target="_blank"
                   rel="noopener noreferrer"
                   href={project.sourceUrl}
-                  className="flex w-full items-center justify-center gap-4 rounded-xl bg-white p-4 font-bold shadow-xl ring-1 ring-violet-700"
+                  className={`${project.sourceUrl == "" ? "bg-gray-200 ring-gray-700" : "bg-white ring-violet-700"} flex w-full items-center justify-center gap-4 rounded-xl p-4 font-bold shadow-xl ring-1 `}
                 >
                   <Image
                     src="/images/skills/github.svg"

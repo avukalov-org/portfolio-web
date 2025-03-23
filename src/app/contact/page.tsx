@@ -18,7 +18,7 @@ const ContactPage: React.FC = () => {
           {/* TESTING AREA */}
           <div className="h-full rounded-lg bg-white opacity-50 shadow-xl lg:h-2/3">
             <div className="flex h-full flex-row items-center justify-center">
-              Blog Posts Slider
+              No Blog Posts Yet.
             </div>
           </div>
         </div>
