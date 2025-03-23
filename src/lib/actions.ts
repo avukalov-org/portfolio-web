@@ -3,7 +3,6 @@
 // import { unstable_noStore as noSort } from 'next/cache';
 import { Client, LibraryResponse, SendEmailV3_1 } from 'node-mailjet';
 import { Project } from './definitions';
-import { unstable_noStore as noStore } from 'next/cache';
 
 export async function sendEmail(
   fullname: string,
@@ -58,7 +57,6 @@ export async function sendEmail(
 }
 
 export async function getProjects() {
-  noStore();
   const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT!, {
     method: 'POST',
     headers: {
