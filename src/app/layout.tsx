@@ -4,19 +4,8 @@ import { domAnimation, LazyMotion } from 'framer-motion';
 
 import Navbar from '@/components/navbar';
 
-import localFont from 'next/font/local';
 import './globals.css';
-
-const geistSans = localFont({
-  src: '../../public/fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-});
-const geistMono = localFont({
-  src: '../../public/fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
-});
+import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
   title: 'avukalov.com',
@@ -30,18 +19,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`text-violet-950 antialiased`}>
         <LazyMotion strict features={domAnimation}>
-          <header className="sticky top-0 z-50 h-16 bg-white shadow-lg md:h-20">
-            <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
+          <header className="sticky top-0 shadow-2xl">
+            <div className="z-50 h-16 bg-white px-4 sm:px-8 md:h-20 md:px-12 lg:px-24 xl:px-48 2xl:px-96">
               <Navbar />
             </div>
           </header>
-          <div className="lg:from-violete-300 h-[calc(100vh-4rem)] overflow-hidden bg-gradient-to-t from-fuchsia-600 to-green-50 md:h-[calc(100vh-5rem)] lg:bg-[radial-gradient(circle_at_right,_var(--tw-gradient-stops))] lg:via-yellow-400 lg:to-fuchsia-200">
+          <main className="px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48 2xl:px-96">
             {children}
-          </div>
+          </main>
+          <footer className="h-16 bg-gray-100 px-4 sm:px-8 md:h-20 md:px-12 lg:px-24 xl:px-48 2xl:px-96">
+            <Footer />
+          </footer>
         </LazyMotion>
       </body>
     </html>

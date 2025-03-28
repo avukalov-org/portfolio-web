@@ -18,7 +18,7 @@ const PageTransitionWrapper: React.FC<
           type: 'spring',
           duration: 0.8,
         }}
-        className={`h-full ${className}`}
+        className={`${className}`}
       >
         {children}
       </MotionWrapper>

@@ -3,6 +3,7 @@
 // import { unstable_noStore as noSort } from 'next/cache';
 import { Client, LibraryResponse, SendEmailV3_1 } from 'node-mailjet';
 import { Project } from './definitions';
+// import { bundleMDX } from "mdx-bundler";
 
 export async function sendEmail(
   fullname: string,
@@ -106,3 +107,11 @@ export async function getProjects() {
 
   return projects;
 }
+
+// export async function compileMdx(mdxSource: string) {
+//   const { code, frontmatter } = await bundleMDX({
+//     source: mdxSource,
+//   });
+
+//   return { code, frontmatter };
+// }
