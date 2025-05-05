@@ -60,10 +60,7 @@ export async function sendEmail(
 export async function getProjects() {
   const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT!, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Cache-Control': 'no-cache',
-    },
+    cache: 'no-store',
     body: JSON.stringify({
       query: `
         query Projects {
