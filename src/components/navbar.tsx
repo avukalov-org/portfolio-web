@@ -8,11 +8,11 @@ import { AnimatePresence, m } from 'framer-motion';
 import TransitionNavLink from './transition-nav-link';
 
 const links: Array<INavLink> = [
-  { url: '/', title: 'Home' },
+  // { url: "/", title: "Home" },
+  { url: '/projects', title: 'Projects' },
   { url: '/about', title: 'About' },
-  { url: '/portfolio', title: 'Portfolio' },
   { url: '/contact', title: 'Contact' },
-  // { url: '/blog', title: 'Blog' },
+  // { url: "/blog", title: "Blog" },
 ];
 
 function Navbar() {
@@ -78,15 +78,8 @@ function Navbar() {
   };
 
   return (
-    <m.div
-      initial={{ y: 25, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{
-        duration: 0.75,
-      }}
-      className="flex h-full items-center justify-between text-xl"
-    >
-      <div className="flex justify-start gap-8">
+    <div className="flex h-full items-center justify-between">
+      <div className="flex w-full items-center justify-between">
         {/* LOGO */}
         <div className="md:hidden lg:flex">
           <Link
@@ -100,23 +93,22 @@ function Navbar() {
           </Link>
         </div>
         {/* LINKS */}
-        <div className="hidden justify-start gap-6 md:flex">
+        <div className="hidden h-full gap-8 font-semibold md:flex">
           {links.map((link: INavLink, index: number) => (
             <TransitionNavLink link={link} key={index} />
           ))}
         </div>
-      </div>
-
-      {/* SOCIAL */}
-      <div className="hidden justify-end gap-4 md:flex">
-        <Link href="https://github.com/avukalov">
-          <Image
-            src="/images/skills/github.svg"
-            alt="Github"
-            width={30}
-            height={30}
-          />
-        </Link>
+        {/* SOCIAL */}
+        <div className="hidden justify-end gap-4 md:flex">
+          <Link href="https://github.com/avukalov">
+            <Image
+              src="/images/skills/github.svg"
+              alt="Github"
+              width={30}
+              height={30}
+            />
+          </Link>
+        </div>
       </div>
 
       {/* RESPONSIVE MENU */}
@@ -151,11 +143,25 @@ function Navbar() {
               initial="closed"
               animate="opened"
               exit="closed"
-              className="absolute left-0 top-0 z-40 flex h-screen w-screen flex-col items-center justify-center gap-8 bg-white text-4xl text-violet-950"
+              className="absolute top-0 left-0 z-40 flex h-screen w-screen flex-col items-center justify-center gap-8 bg-white text-4xl text-violet-950"
             >
+              {/* LOGO */}
+              <div className="md:hidden lg:flex">
+                <Link
+                  href="/"
+                  onClick={() => setOpen((prev) => !prev)}
+                  className="flex items-center justify-center rounded-md bg-violet-950 p-1 text-sm font-semibold"
+                >
+                  <span className="mr-1 px-1 text-white">avukalov</span>
+                  <span className="flex h-8 w-12 items-center justify-center rounded bg-white text-violet-950">
+                    .com
+                  </span>
+                </Link>
+              </div>
               {links.map((link: INavLink, index: number) => (
-                <m.div variants={listItemVariants} className="" key={index}>
+                <m.div variants={listItemVariants} key={index}>
                   <Link
+                    className="text-3xl"
                     href={link.url}
                     onClick={() => setOpen((prev) => !prev)}
                   >
@@ -167,7 +173,7 @@ function Navbar() {
           </AnimatePresence>
         )}
       </div>
-    </m.div>
+    </div>
   );
 }
 
