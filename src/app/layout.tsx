@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`text-violet-950 antialiased`}>
         <LazyMotion strict features={domAnimation}>
-          <header className="sticky top-0 shadow-2xl">
+          <header className="sticky top-0 z-50 shadow-2xl">
             <div className="z-50 h-16 bg-white px-4 sm:px-8 md:h-20 md:px-12 lg:px-24 xl:px-48 2xl:px-96">
               <Navbar />
             </div>
@@ -29,9 +29,9 @@ export default function RootLayout({
           <main className="px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48 2xl:px-96">
             {children}
           </main>
-          <footer className="h-16 bg-gray-100 px-4 sm:px-8 md:h-20 md:px-12 lg:px-24 xl:px-48 2xl:px-96">
+          {/* <footer className="h-16 bg-gray-100 px-4 sm:px-8 md:h-20 md:px-12 lg:px-24 xl:px-48 2xl:px-96">
             <Footer />
-          </footer>
+          </footer> */}
         </LazyMotion>
       </body>
     </html>
