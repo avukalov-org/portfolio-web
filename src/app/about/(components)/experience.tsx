@@ -42,7 +42,7 @@ function Experience({
                 {/* JOB DESC */}
                 <div className="p-3 text-sm italic">{item.desc} </div>
                 {/* JOB DATE */}
-                <div className="p-3 text-red-400 text-sm font-semibold">
+                <div className="p-3 text-sm font-semibold">
                   {item.date}
                 </div>
                 {/* JOB COMPANY */}
