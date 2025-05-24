@@ -99,6 +99,8 @@ const ScrollingSkills: React.FC<{
                 alt="logo"
                 width={50}
                 height={50}
+                width={50}
+                height={50}
                 className="" // Veličina logotipa
               />
             </div>
