@@ -61,7 +61,6 @@ function AboutPage() {
       <section
         id="education"
         className="relative flex flex-col px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 2xl:px-64"
-        className="relative flex flex-col px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 2xl:px-64"
       >
         <div className="z-20 flex flex-col gap-4 text-center md:gap-0 md:text-left">
           <h1 className="text-6xl">Education</h1>
@@ -147,7 +146,6 @@ function AboutPage() {
 
       <section
         id="skills"
-        className="relative flex flex-col px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 2xl:px-64"
         className="relative flex flex-col px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 2xl:px-64"
       >
         <div className="z-20 flex flex-col gap-4 text-center md:gap-0 md:text-left">
