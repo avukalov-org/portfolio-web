@@ -12,9 +12,7 @@ function TransitionProvider({
 }>) {
   const isMobile = useMobileView();
   console.log(`transtionProvider:  ${!isMobile}`);
-  console.log(
-    `transtionProvider:  ${!isMobile ? 'animateState' : 'exitState'}`,
-  );
+  console.log(`transtionProvider:  ${!isMobile ? 'animateState' : 'exitState'}`);
 
   const desktopVariants = {
     initialState: {
@@ -49,13 +47,11 @@ function TransitionProvider({
     <AnimatePresence mode="wait">
       <m.div variants={!isMobile ? desktopVariants : mobileVariants}></m.div>
       <header className="sticky top-0 h-16 bg-white shadow-lg md:h-20">
-        <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
+        <div className="3xl:px-96 h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 2xl:px-64">
           <Navbar />
         </div>
       </header>
-      <div className="h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)]">
-        {children}
-      </div>
+      <div className="h-[calc(100vh-4rem)] md:h-[calc(100vh-5rem)]">{children}</div>
       {/* <m.div
         key={pathname}
         initial="initialState"

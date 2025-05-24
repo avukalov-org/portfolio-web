@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="relative h-full overflow-y-auto px-4 py-8 sm:px-8 md:px-12 lg:flex lg:px-24 xl:px-48">
+    <div className="relative h-full overflow-y-auto px-4 py-8 sm:px-8 md:px-12 lg:flex lg:px-24 xl:px-36">
       <div className="flex w-full flex-col gap-8 lg:flex-row-reverse">
         <div className="z-10 h-full w-full opacity-80 lg:w-2/5">
           <ContactForm />
@@ -26,13 +26,7 @@ const ContactPage: React.FC = () => {
 
       {/* IMAGE */}
       <div className="absolute -top-20 left-10">
-        <Image
-          src="/images/pc.png"
-          alt="PC"
-          height={700}
-          width={700}
-          className="opacity-50"
-        />
+        <Image src="/images/pc.png" alt="PC" height={700} width={700} className="opacity-50" />
       </div>
     </div>
   );

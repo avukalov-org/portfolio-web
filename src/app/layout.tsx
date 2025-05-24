@@ -30,16 +30,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased font-mono`}
-      >
+      <body className={`font-mono antialiased`}>
         <LazyMotion strict features={domAnimation}>
           <header className="sticky top-0 z-50 h-16 bg-white shadow-lg md:h-20">
-            <div className="h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-48">
+            <div className="3xl:px-96 h-full px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 2xl:px-64">
               <Navbar />
             </div>
           </header>
-          <div className="h-[calc(100vh-4rem)] md:h-[calc(100dvh-5rem)] prose lg:prose-xl">
+          <div className="prose lg:prose-xl h-[calc(100vh-4rem)] md:h-[calc(100dvh-5rem)]">
             {children}
           </div>
         </LazyMotion>

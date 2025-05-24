@@ -10,7 +10,7 @@ import TransitionNavLink from './transition-nav-link';
 const links: Array<INavLink> = [
   { url: '/', title: 'Home' },
   { url: '/about', title: 'About' },
-  { url: '/portfolio', title: 'Portfolio' },
+  { url: '/projects', title: 'Projects' },
   { url: '/contact', title: 'Contact' },
   // { url: '/blog', title: 'Blog' },
 ];
@@ -110,12 +110,7 @@ function Navbar() {
       {/* SOCIAL */}
       <div className="hidden justify-end gap-4 md:flex">
         <Link href="https://github.com/avukalov">
-          <Image
-            src="/images/skills/github.svg"
-            alt="Github"
-            width={30}
-            height={30}
-          />
+          <Image src="/images/skills/github.svg" alt="Github" width={30} height={30} />
         </Link>
       </div>
 
@@ -151,14 +146,11 @@ function Navbar() {
               initial="closed"
               animate="opened"
               exit="closed"
-              className="absolute left-0 top-0 z-40 flex h-screen w-screen flex-col items-center justify-center gap-8 bg-white text-4xl text-violet-950"
+              className="absolute top-0 left-0 z-40 flex h-screen w-screen flex-col items-center justify-center gap-8 bg-white text-4xl text-violet-950"
             >
               {links.map((link: INavLink, index: number) => (
                 <m.div variants={listItemVariants} className="" key={index}>
-                  <Link
-                    href={link.url}
-                    onClick={() => setOpen((prev) => !prev)}
-                  >
+                  <Link href={link.url} onClick={() => setOpen((prev) => !prev)}>
                     {link.title}
                   </Link>
                 </m.div>
