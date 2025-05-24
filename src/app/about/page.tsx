@@ -105,12 +105,7 @@ function AboutPage() {
                             energy, and creativity into real-world projects that reflect my skills, curiosity,
                             and drive to build meaningful software.
                         </p>
-                        <p className="">I&apos;m comfortable switching between languages and frameworks,
-                            and I thrive when facing new challenges. Whether it&apos;s building scalable APIs,
-                            designing interactive UIs, or containerizing services with Docker, I approach
-                            each task with curiosity and a desire to grow. Learning fast, adapting quickly,
-                            and staying passionate about new technologies are what drive me as a developer.
-                        </p>
+                        
                     </div>
                     <div className="flex justify-center md:w-1/2 lg:w-2/5">
                         <Experience list={expList} isExperienceInView />
@@ -127,6 +122,7 @@ function AboutPage() {
         
         
     </div>
+    
   );
 }
 

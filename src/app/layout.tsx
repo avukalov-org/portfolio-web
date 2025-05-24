@@ -39,7 +39,7 @@ export default function RootLayout({
               <Navbar />
             </div>
           </header>
-          <div className=" h-[calc(100vh-4rem)] md:h-[calc(100dvh-5rem)] prose lg:prose-xl">
+          <div className="h-[calc(100vh-4rem)] md:h-[calc(100dvh-5rem)] prose lg:prose-xl">
             {children}
           </div>
         </LazyMotion>
