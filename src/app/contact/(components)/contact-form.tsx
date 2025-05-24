@@ -4,11 +4,13 @@ import { useRef, useState } from 'react';
 import { sendEmail as send } from '@/lib/actions';
 import SpecialButton from '../../../components/special-button';
 import MotionWrapper from '../../../components/motion-wrapper';
+import { useBreakpoint } from '@/lib/hooks/useBreakpoint';
 
 const ContactForm: React.FC<{ classname?: string }> = ({ classname = '' }) => {
   // const [success, setSuccess] = useState(false);
   // const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const breakpoint = useBreakpoint();
 
   const form = useRef<HTMLFormElement>(null);
 
@@ -40,7 +42,7 @@ const ContactForm: React.FC<{ classname?: string }> = ({ classname = '' }) => {
     <form
       ref={form}
       onSubmit={sendEmail}
-      className={`${classname} flex h-full w-full flex-col gap-4`}
+      className={`${classname} flex h-full w-full flex-col gap-2 md:gap-4`}
     >
       <div className="z-20 w-4/5 px-3">
         <label
@@ -50,6 +52,7 @@ const ContactForm: React.FC<{ classname?: string }> = ({ classname = '' }) => {
           Full name
         </label>
         <input
+          autoFocus
           className="mb-3 block w-full appearance-none rounded-md border border-gray-200 px-4 py-3 leading-tight text-gray-700 shadow-xl focus:bg-white focus:outline-none"
           id="contact-fullname"
           type="text"
@@ -109,7 +112,7 @@ const ContactForm: React.FC<{ classname?: string }> = ({ classname = '' }) => {
         <textarea
           className="block w-full resize-none appearance-none rounded-lg border border-gray-200 px-4 py-3 leading-tight text-gray-700 shadow-xl focus:border-gray-500 focus:bg-white focus:outline-none"
           id="contact-message"
-          rows={7}
+          rows={breakpoint == 'xl' || breakpoint == '2xl' ? 7 : 10}
           name="contactMessage"
           placeholder={
             'Remember, courage is not born of strength, but of the choice to do what is right, even when no one is watching. Let reason guide you, but never silence your heart. Above all — may the Force be with you.'
