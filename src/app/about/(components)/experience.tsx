@@ -14,14 +14,14 @@ function Experience({
   return (
     <>
       {/* EXPERIENCE TITLE */}
-      <m.h1
+      {/* <m.h1
         initial={{ opacity: 0, x: "-100px" }}
         animate={isExperienceInView ? { opacity: 1, x: 0 } : {}}
         transition={{ delay: 0.2 }}
         className="font-bold text-2xl"
       >
         EXPERIENCE
-      </m.h1>
+      </m.h1> */}
 
       {/* EXPERIENCE LIST */}
       <m.div
@@ -34,7 +34,7 @@ function Experience({
           <div key={index} className="flex justify-between h-48">
             {/* LEFT */}
             {index % 2 === 0 ? (
-              <div className="w-2/5">
+              <div className="w-4/5">
                 {/* JOB TITLE */}
                 <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
                   {item.title}
@@ -62,27 +62,26 @@ function Experience({
                 <div className="absolute w-5 h-5 rounded-full ring-4 ring-red-400 bg-white self-start"></div>
               </div>
             </div>
-            {/* RIGHT */}
-            {index % 2 !== 0 ? (
+            {/* {index % 2 !== 0 ? (
               <div className="w-2/5">
-                {/* JOB TITLE */}
+  
                 <div className="bg-white p-3 font-semibold rounded-b-lg rounded-s-lg">
                   {item.title}
                 </div>
-                {/* JOB DESC */}
+  
                 <div className="p-3 text-sm italic">{item.desc} </div>
-                {/* JOB DATE */}
+  
                 <div className="p-3 text-red-400 text-sm font-semibold">
                   {item.date}
                 </div>
-                {/* JOB COMPANY */}
+  
                 <div className="p-1 ml-2 rounded bg-white text-sm font-semibold w-fit">
                   <Link href={item.company.url}>{item.company.name}</Link>
                 </div>
               </div>
             ) : (
               <div className="w-2/5"></div>
-            )}
+            )} */}
           </div>
         ))}
       </m.div>

@@ -12,5 +12,5 @@ export default function AboutPageLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <TransitionWrapper>{children}</TransitionWrapper>;
+  return <TransitionWrapper className="w-screen overflow-x-hidden">{children}</TransitionWrapper>;
 }

@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`antialiased font-mono`}
       >
         <LazyMotion strict features={domAnimation}>
           <header className="sticky top-0 z-50 h-16 bg-white shadow-lg md:h-20">
@@ -39,7 +39,7 @@ export default function RootLayout({
               <Navbar />
             </div>
           </header>
-          <div className="lg:from-violete-300 h-[calc(100vh-4rem)] overflow-hidden bg-gradient-to-t from-fuchsia-600 to-green-50 md:h-[calc(100vh-5rem)] lg:bg-[radial-gradient(circle_at_right,_var(--tw-gradient-stops))] lg:via-yellow-400 lg:to-fuchsia-200">
+          <div className=" h-[calc(100vh-4rem)] md:h-[calc(100dvh-5rem)] prose lg:prose-xl">
             {children}
           </div>
         </LazyMotion>

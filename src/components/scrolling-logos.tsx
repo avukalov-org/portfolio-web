@@ -73,7 +73,7 @@ const ScrollingSkills = () => {
   // }, []); // Prazan dependency array osigurava da se useEffect pokrene samo jednom
 
   return (
-    <div className="relative mx-auto flex w-full flex-col gap-16 overflow-hidden py-16">
+    <div className="relative mx-auto flex w-full flex-col gap-4 overflow-hidden py-8 select-none">
       {/* <div className="absolute inset-0 z-20 before:absolute before:left-0 before:top-0 before:w-1/4 before:h-full before:bg-gradient-to-r before:from-white before:to-transparent before:filter before:blur-3 after:absolute after:right-0 after:top-0 after:w-1/4 after:h-full after:bg-gradient-to-l after:from-white after:to-transparent after:filter after:blur-3"></div> */}
 
       <m.div
@@ -84,7 +84,7 @@ const ScrollingSkills = () => {
         {first.map((slide, index) => (
           <div
             key={index}
-            className={`flex-shrink-0 border-y-2 border-l-2 border-gray-50 py-4 hover:bg-gray-50 hover:bg-opacity-45`}
+            className={`flex-shrink-0 md:border-y-2 md:border-l-2 md:border-gray-50 py-4 hover:bg-gray-50 hover:bg-opacity-45`}
             style={{ width: `${100 / (skills.length / 2)}%` }}
           >
             <div className="flex h-full items-center justify-center">
@@ -92,8 +92,8 @@ const ScrollingSkills = () => {
                 key={slide.id + Math.random()} // Za svaki red daj drugačiji ključ zbog dupliciranja
                 src={`/images/skills/${slide.src}`}
                 alt="logo"
-                width={64}
-                height={64}
+                width={50}
+                height={50}
                 className="" // Veličina logotipa
               />
               {/* <p>{slide.name}</p> */}
@@ -109,7 +109,7 @@ const ScrollingSkills = () => {
         {second.map((slide, index) => (
           <div
             key={index}
-            className={`flex-shrink-0 border-y-2 border-l-2 border-gray-50 py-4 hover:bg-gray-50 hover:bg-opacity-45`}
+            className={`flex-shrink-0 md:border-y-2 md:border-l-2 md:border-gray-50 py-4 hover:bg-gray-50 hover:bg-opacity-45`}
             style={{ width: `${100 / (skills.length / 2)}%` }}
           >
             <div className="flex h-full items-center justify-center">
@@ -117,8 +117,8 @@ const ScrollingSkills = () => {
                 key={slide.id + Math.random()} // Za svaki red daj drugačiji ključ zbog dupliciranja
                 src={`/images/skills/${slide.src}`}
                 alt="logo"
-                width={64}
-                height={64}
+                width={50}
+                height={50}
                 className="" // Veličina logotipa
               />
             </div>
