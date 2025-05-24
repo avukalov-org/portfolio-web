@@ -6,6 +6,7 @@ import TransitionWrapper from '@/components/page-transition-wrapper';
 import MotionWrapper from '@/components/motion-wrapper';
 import SpecialButton from '@/components/special-button';
 import { m } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const HomePage: React.FC = () => {
   return (
