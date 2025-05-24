@@ -42,8 +42,24 @@ const HomePage: React.FC = () => {
             </div>
           </div>
 
-          <m.div className="absolute z-10 mt-5 mr-5 h-100 w-100 self-end rounded-full bg-yellow-300 2xl:h-150 2xl:w-150" />
-          <m.div className="absolute z-10 h-100 w-100 self-end rounded-full bg-green-400 2xl:h-150 2xl:w-150" />
+          <m.div
+            animate={{ y: [0, -10, 0], x: [0, 10, 0] }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+            className="absolute z-10 mt-5 mr-5 h-100 w-100 self-end rounded-full bg-yellow-300 2xl:h-150 2xl:w-150"
+          />
+          <m.div
+            animate={{ y: [0, -10, 0], x: [0, 10, 0] }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+            className="absolute z-10 h-100 w-100 self-end rounded-full bg-green-400 2xl:h-150 2xl:w-150"
+          />
         </section>
       </div>
     </TransitionWrapper>

@@ -5,7 +5,7 @@ import { sendEmail as send } from '@/lib/actions';
 import SpecialButton from '../../../components/special-button';
 import MotionWrapper from '../../../components/motion-wrapper';
 
-const ContactForm = () => {
+const ContactForm: React.FC<{ classname?: string }> = ({ classname = '' }) => {
   // const [success, setSuccess] = useState(false);
   // const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -36,35 +36,34 @@ const ContactForm = () => {
     );
   };
 
-  
   return (
     <form
       ref={form}
       onSubmit={sendEmail}
-      className="flex h-full w-full flex-col gap-4"
+      className={`${classname} flex h-full w-full flex-col gap-4`}
     >
-      <div className="w-4/5 px-3">
+      <div className="z-20 w-4/5 px-3">
         <label
-          className="mb-2 block text-lg font-bold uppercase tracking-wide text-gray-700"
+          className="mb-2 block text-lg font-bold tracking-wide text-gray-700 uppercase"
           htmlFor="contact-fullname"
         >
           Full name
         </label>
         <input
-          className="border-gray-2lg mb-3 block w-full appearance-none rounded-md border px-4 py-3 leading-tight text-gray-700 shadow-xl focus:bg-white focus:outline-none"
+          className="mb-3 block w-full appearance-none rounded-md border border-gray-200 px-4 py-3 leading-tight text-gray-700 shadow-xl focus:bg-white focus:outline-none"
           id="contact-fullname"
           type="text"
           name="contactFullname"
-          placeholder="Joe Doe"
+          placeholder="Obi-Wan Kenobi"
           required
         />
-        <p hidden className="text-xs italic text-red-500">
+        <p hidden className="text-xs text-red-500 italic">
           Please fill out this field.
         </p>
       </div>
-      <div className="w-4/5 px-3">
+      <div className="z-20 w-4/5 px-3">
         <label
-          className="mb-2 block text-lg font-bold uppercase tracking-wide text-gray-700"
+          className="mb-2 block text-lg font-bold tracking-wide text-gray-700 uppercase"
           htmlFor="contact-email"
         >
           Email Address
@@ -74,16 +73,16 @@ const ContactForm = () => {
           id="contact-email"
           type="text"
           name="contactEmail"
-          placeholder="joedoe@mail.com"
+          placeholder="obi@kenobi.com"
           required
         />
-        <p hidden className="text-xs italic text-red-500">
+        <p hidden className="text-xs text-red-500 italic">
           Please fill out this field.
         </p>
       </div>
-      <div className="w-full px-3">
+      <div className="z-20 w-full px-3">
         <label
-          className="mb-2 block text-lg font-bold uppercase tracking-wide text-gray-700"
+          className="mb-2 block text-lg font-bold tracking-wide text-gray-700 uppercase"
           htmlFor="contact-title"
         >
           Title
@@ -100,9 +99,9 @@ const ContactForm = () => {
             Make it as long and as crazy as you'd like
           </p> */}
       </div>
-      <div className="w-full px-3">
+      <div className="z-20 w-full px-3">
         <label
-          className="mb-2 block text-lg font-bold uppercase tracking-wide text-gray-700"
+          className="mb-2 block text-lg font-bold tracking-wide text-gray-700 uppercase"
           htmlFor="contact-message"
         >
           Message
@@ -110,14 +109,16 @@ const ContactForm = () => {
         <textarea
           className="block w-full resize-none appearance-none rounded-lg border border-gray-200 px-4 py-3 leading-tight text-gray-700 shadow-xl focus:border-gray-500 focus:bg-white focus:outline-none"
           id="contact-message"
-          rows={15}
+          rows={7}
           name="contactMessage"
-          placeholder={"Enter your message here..."}
+          placeholder={
+            'Remember, courage is not born of strength, but of the choice to do what is right, even when no one is watching. Let reason guide you, but never silence your heart. Above all — may the Force be with you.'
+          }
           required
         />
       </div>
       <div className="flex w-full flex-row justify-end px-4 py-3">
-        <button type="submit">
+        <button type="submit" disabled={loading}>
           <MotionWrapper whileHover={{ scale: 1.05 }}>
             <SpecialButton className="bg-violet-950 text-white">
               {loading ? 'Loading' : 'Send'}

@@ -62,9 +62,7 @@ const ContactInfo = () => {
               target={item.link !== '#' ? '_blank' : undefined}
               rel={item.link !== '#' ? 'noopener noreferrer' : undefined}
               href={item.link}
-              className={`col-span-2 row-span-1 ${
-                index > 2 ? 'row-start-2' : ''
-              }`}
+              className={`col-span-2 row-span-1 ${index > 2 ? 'row-start-2' : ''}`}
               key={index}
             >
               <MotionWrapper
@@ -73,7 +71,7 @@ const ContactInfo = () => {
                   y: -10,
                   scale: 1.1,
                 }}
-                className={`h-full w-full rounded-md ${item.color} ${item.hoverColor} cursor-pointer px-4 py-8 shadow-xl`}
+                className={`h-full w-full rounded-md ${item.color} ${item.hoverColor} cursor-pointer shadow-xl`}
               >
                 <div className="flex h-full flex-col items-center justify-center">
                   <p className="text-lg font-semibold">{item.name}</p>

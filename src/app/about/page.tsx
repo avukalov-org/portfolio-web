@@ -40,7 +40,7 @@ function AboutPage() {
       {/* EDUCATION SECTION */}
       <section
         id="education"
-        className="3xl:px-96 relative flex flex-col px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 2xl:px-64"
+        className="relative flex flex-col px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 2xl:px-64"
       >
         <div className="z-20 flex flex-col gap-4 text-center md:gap-0 md:text-left">
           <h1 className="text-6xl">Education</h1>
@@ -74,7 +74,7 @@ function AboutPage() {
 
       <section
         id="skills"
-        className="3xl:px-96 relative flex flex-col px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 2xl:px-64"
+        className="relative flex flex-col px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 2xl:px-64"
       >
         <div className="z-20 flex flex-col gap-4 text-center md:items-end md:gap-0 md:text-right">
           <h1 className="text-6xl">Skills</h1>
@@ -101,7 +101,7 @@ function AboutPage() {
 
       <section
         id="experience"
-        className="3xl:px-96 relative flex flex-col px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 2xl:px-64"
+        className="relative flex flex-col px-4 sm:px-8 md:px-12 lg:px-24 xl:px-36 2xl:px-64"
       >
         <div className="z-20 flex flex-col gap-4 text-center md:gap-0 md:text-left">
           <h1 className="text-5xl md:text-6xl">Experience</h1>
@@ -118,8 +118,8 @@ function AboutPage() {
                 curiosity, and drive to build meaningful software.
               </p>
             </div>
-            <div className="flex justify-center md:w-1/2 lg:w-2/5">
-              <Experience list={expList} isExperienceInView />
+            <div ref={experienceRef} className="flex justify-center md:w-1/2 lg:w-2/5">
+              <Experience list={expList} isExperienceInView={isExperienceInView} />
             </div>
           </div>
         </div>
