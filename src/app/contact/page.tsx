@@ -6,7 +6,7 @@ import { m } from 'framer-motion';
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="flex flex-col gap-16 px-4 py-16 sm:px-8 md:px-12 lg:flex-row lg:px-24 lg:py-12 xl:px-36 2xl:px-64">
+    <div className="flex flex-col-reverse gap-8 px-4 py-16 sm:px-8 md:flex-col md:gap-16 md:px-12 lg:flex-row lg:px-24 lg:py-12 xl:px-36 2xl:px-64">
       <section id="contact-info" className="relative lg:w-1/2">
         <div className="z-20">
           <ContactInfo />
@@ -14,7 +14,7 @@ const ContactPage: React.FC = () => {
 
         {/* TODO: Dodati neki dio diplome / žig / nešto upadljivo */}
 
-        <m.div className="blur-3lg absolute bottom-0 z-10 mb-5 ml-5 h-100 w-100 rounded-full bg-yellow-300" />
+        <m.div className="absolute bottom-0 z-10 mb-5 ml-5 h-100 w-100 rounded-full bg-yellow-300" />
         <m.div className="absolute bottom-0 z-10 h-95 w-95 rounded-full bg-green-400" />
       </section>
 

@@ -56,7 +56,7 @@ const ContactInfo = () => {
   return (
     <div className="h-full w-full">
       <div className="flex h-full w-full flex-row gap-6">
-        <div className="grid w-full grid-cols-6 grid-rows-2 gap-4">
+        <div className="z-20 grid w-full grid-cols-6 grid-rows-2 gap-4">
           {contactList.map((item: ContactItem, index: number) => (
             <Link
               target={item.link !== '#' ? '_blank' : undefined}
