@@ -2,32 +2,46 @@
 
 import ContactForm from '@/app/contact/(components)/contact-form';
 import ContactInfo from '@/app/contact/(components)/contact-info';
-import Image from 'next/image';
+import { m } from 'framer-motion';
 
 const ContactPage: React.FC = () => {
   return (
-    <div className="relative h-full overflow-y-auto px-4 py-8 sm:px-8 md:px-12 lg:flex lg:px-24 xl:px-36">
-      <div className="flex w-full flex-col gap-8 lg:flex-row-reverse">
-        <div className="z-10 h-full w-full opacity-80 lg:w-2/5">
-          <ContactForm />
+    <div className="flex flex-col gap-16 px-4 py-16 sm:px-8 md:px-12 lg:flex-row lg:px-24 lg:py-12 xl:px-36 2xl:px-64">
+      <section id="contact-info" className="relative lg:w-1/2">
+        <div className="z-20">
+          <ContactInfo />
         </div>
-        <div className="z-10 flex w-full flex-col gap-8 lg:w-3/5">
-          <div className="h-full lg:h-1/3">
-            <ContactInfo />
-          </div>
-          {/* TESTING AREA */}
-          <div className="h-full rounded-lg bg-white opacity-50 shadow-xl lg:h-2/3">
-            <div className="flex h-full flex-row items-center justify-center">
-              No Blog Posts Yet.
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* IMAGE */}
-      <div className="absolute -top-20 left-10">
-        <Image src="/images/pc.png" alt="PC" height={700} width={700} className="opacity-50" />
-      </div>
+        {/* TODO: Dodati neki dio diplome / žig / nešto upadljivo */}
+
+        <m.div className="blur-3lg absolute bottom-0 z-10 mb-5 ml-5 h-100 w-100 rounded-full bg-yellow-300" />
+        <m.div className="absolute bottom-0 z-10 h-95 w-95 rounded-full bg-green-400" />
+      </section>
+
+      <section id="contact-form" className="relative lg:w-1/2">
+        <ContactForm />
+        {/* <div className="z-20">
+        </div> */}
+
+        <m.div
+          animate={{ y: [0, -10, 0], x: [0, 10, 0] }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+          className="absolute top-0 right-0 z-10 mt-5 mr-5 h-100 w-100 rounded-full bg-yellow-300"
+        />
+        <m.div
+          animate={{ y: [0, 5, 0], x: [0, -10, 0] }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+          className="absolute top-0 right-0 z-10 h-100 w-100 rounded-full bg-green-400"
+        />
+      </section>
     </div>
   );
 };
