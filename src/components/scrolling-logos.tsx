@@ -25,6 +25,8 @@ const skills: Skills[] = [
   { id: 16, name: 'tailwind', src: 'tailwind.svg' },
   { id: 17, name: 'typescript', src: 'typescript.svg' },
   { id: 18, name: 'ubuntu', src: 'ubuntu.svg' },
+  { id: 19, name: 'auth0', src: 'auth0.svg' },
+  { id: 20, name: 'dotnet', src: 'dotnet.svg' },
   // ...
 ];
 
@@ -51,40 +53,22 @@ const scrollingVariant = (direction: string) => ({
   },
 });
 
-const ScrollingSkills = () => {
-  const [first, second] = divideList(skills);
-  // const [mouseX, setMouseX] = useState(0);
-
-  // useEffect(() => {
-  //   // Funkcija koja se poziva kada se miš pomakne
-  //   const handleMouseMove = (event: {
-  //     clientX: SetStateAction<number>;
-  //   }): void => {
-  //     // setMouseX(event.clientX); // Ažuriraj x koordinatu miša
-  //   };
-
-  //   // Dodaj event listener za praćenje pokreta miša
-  //   window.addEventListener('mousemove', handleMouseMove);
-
-  //   // Ukloni event listener prilikom demontiranja komponente
-  //   return () => {
-  //     window.removeEventListener('mousemove', handleMouseMove);
-  //   };
-  // }, []); // Prazan dependency array osigurava da se useEffect pokrene samo jednom
+const ScrollingSkills: React.FC<{
+  skillsList: Skills[];
+  first?: boolean;
+  direction?: string;
+}> = ({ skillsList, first = true, direction = 'left' }) => {
+  // const [f, second] = divideList(skills);
 
   return (
-    <div className="relative mx-auto flex w-full flex-col gap-4 overflow-hidden py-8 select-none">
+    <div className="relative z-20 mx-auto flex w-full flex-col gap-4 overflow-hidden py-2 select-none">
       {/* <div className="absolute inset-0 z-20 before:absolute before:left-0 before:top-0 before:w-1/4 before:h-full before:bg-gradient-to-r before:from-white before:to-transparent before:filter before:blur-3 after:absolute after:right-0 after:top-0 after:w-1/4 after:h-full after:bg-gradient-to-l after:from-white after:to-transparent after:filter after:blur-3"></div> */}
 
-      <m.div
-        className="flex"
-        variants={scrollingVariant('left')}
-        animate="animate"
-      >
-        {first.map((slide, index) => (
+      <m.div className="flex" variants={scrollingVariant(direction)} animate="animate">
+        {skillsList.map((slide, index) => (
           <div
             key={index}
-            className={`flex-shrink-0 md:border-y-2 md:border-l-2 md:border-gray-50 py-4 hover:bg-gray-50 hover:bg-opacity-45`}
+            className={`flex-shrink-0 bg-white py-4 md:border-y-2 md:border-gray-300`}
             style={{ width: `${100 / (skills.length / 2)}%` }}
           >
             <div className="flex h-full items-center justify-center">
@@ -101,15 +85,11 @@ const ScrollingSkills = () => {
           </div>
         ))}
       </m.div>
-      <m.div
-        className="flex"
-        variants={scrollingVariant('right')}
-        animate="animate"
-      >
+      {/* <m.div className="flex" variants={scrollingVariant('right')} animate="animate">
         {second.map((slide, index) => (
           <div
             key={index}
-            className={`flex-shrink-0 md:border-y-2 md:border-l-2 md:border-gray-50 py-4 hover:bg-gray-50 hover:bg-opacity-45`}
+            className={`hover:bg-opacity-45 flex-shrink-0 py-4 hover:bg-gray-50 md:border-y-2 md:border-l-2 md:border-gray-50`}
             style={{ width: `${100 / (skills.length / 2)}%` }}
           >
             <div className="flex h-full items-center justify-center">
@@ -124,7 +104,7 @@ const ScrollingSkills = () => {
             </div>
           </div>
         ))}
-      </m.div>
+      </m.div> */}
     </div>
   );
 };

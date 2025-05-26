@@ -6,6 +6,7 @@ const breakpoints = {
   lg: 1024,
   xl: 1280,
   '2xl': 1536,
+  '3xl': 2400,
 };
 
 export type Breakpoint = keyof typeof breakpoints | 'base';
@@ -16,6 +17,7 @@ export function useBreakpoint(): Breakpoint {
   useEffect(() => {
     const calcBreakpoint = () => {
       const width = window.innerWidth;
+      if (width >= breakpoints['3xl']) return '3xl';
       if (width >= breakpoints['2xl']) return '2xl';
       if (width >= breakpoints.xl) return 'xl';
       if (width >= breakpoints.lg) return 'lg';
