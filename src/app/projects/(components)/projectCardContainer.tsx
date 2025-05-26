@@ -8,7 +8,7 @@ import ProjectCardMobile from './projectCardMobile';
 
 const ProjectCardContainer: React.FC<{ project: Project }> = ({ project }) => {
   const breakpoint = useBreakpoint();
-  if (breakpoint == 'xl' || breakpoint == '2xl') {
+  if (breakpoint == 'xl' || breakpoint == '2xl' || breakpoint == '3xl') {
     return <ProjectCardDesktop project={project} />;
   }
   return <ProjectCardMobile project={project} />;
