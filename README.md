@@ -8,28 +8,24 @@ Let's get started! 😄
 
 ## Table of content
 
-1. [Server setup and configuration](#server-setup-and-configuration)
-2. [Preparation](#preparation)
-3. [Creating Docker image](#creating-docker-image)
-4. [Building Docker image using self-hosted builder and Github actions](#building-docker-image)
-5. [Nginx configuration](#nginx-configuration)
-6. [Https Certificate](#https-certificate)
-7. [Docker Compose file](#docker-compose-file)
-8. [Firewall](#firewall)
+1. [Preparation](#preparation)
+2. [Creating Docker image](#creating-docker-image)
+3. [Building Docker image using self-hosted builder and Github actions](#building-docker-image)
+4. [Nginx configuration](#nginx-configuration)
+5. [Https Certificate](#https-certificate)
+6. [Docker Compose file](#docker-compose-file)
+7. [Firewall](#firewall)
 
-<div id="server-setup-and-configuration" />
 
-## Server setup and configuration
-
-First and foremost, we need a server. I use a Raspberry Pi 5, but you can use your PC or laptop — it doesn’t matter. Then, we need to expose our server to the internet, which can be done using DDNS (Dynamic DNS) (for free). This is the most accessible option for most people. Another method is to request a static IP address from your ISP (usually expensive, but recommended for a production environment), or you can buy a cheap VPS (Virtual Private Server).
-
-If you’re not interested in exposing your work to the internet but just want to test things out locally, here is an example of how you can make it work.
 
 <div id="preparation" />
 
 ## Preparation
 
-All we need is Docker. Yes, it’s that simple. Install Docker on your machine depends on your operating system. You can install it on Windows, macOS, or Linux by following the official [installation guide](https://docs.docker.com/desktop/) (make sure to use linux containers). Once that’s done, we’re ready to go.
+First and foremost, we need a server. I use a Raspberry Pi 5, but you can use your PC or laptop — it doesn’t matter. Then, we need to expose our server to the internet, which can be done using DDNS (Dynamic DNS) (for free). Another method is to buy a cheap VPS (Virtual Private Server). If you’re not interested in exposing your work to the internet but just want to test things out locally, it works as well.
+
+
+All we need is Docker. Install Docker on your machine depends on your operating system. You can install it on Windows, macOS, or Linux by following the official [installation guide](https://docs.docker.com/desktop/). Once that’s done, we’re ready to go.
 
 <div id='creating-docker-image'/>
 
@@ -94,7 +90,7 @@ EXPOSE 3001
 CMD ["node", "server.js"]
 ```
 
-It's important to mention that I'm using `output: "standalone"` which can be configured in `next.config.mjs`.
+I'm using `output: "standalone"` to minimize image size. It can be configured in `next.config.mjs`.
 
 ```js filename="next.config.mjs"
 const nextConfig = {
@@ -104,14 +100,12 @@ const nextConfig = {
 export default nextConfig;
 ```
 
-If you're asking yourself what these weird strings are, don't worry about it for now.
-
 ```dockerfile
 ARG NEXT_HYGRAPH_ENDPOINT_ARG
 ENV NEXT_HYGRAPH_ENDPOINT=$NEXT_HYGRAPH_ENDPOINT_ARG
 ```
 
-This is basically an environment variable I used for a headless CMS service, since I use a public Git repository (mainly to showcase my work). If you have private environment variables (for example, API keys) in your app, make sure to protect them and **NEVER** push your `.env` file to public Git repository.
+This is an environment variable I used for a headless CMS service. If you have private environment variables (for example, API keys) in your app, make sure to protect them.
 
 <div id='building-docker-image'/>
 
@@ -158,7 +152,7 @@ For the built-in GitHub runner, use `runs-on: ubuntu-latest` instead of `runs-on
 
 If you have secrets or private environment variables such as API keys, go to your GitHub repository **Settings** then in the left sidebar navigate to **Secrets and variables**, and then **Actions**. Set your secrets and API keys there.
 
-I’ve configured the action to be triggered on every push to the `master` branch. This is my personal approach — I always develop on the `develop` branch. When I’m done with the work, I push production-ready changes to the `master` branch, where the action is automatically triggered.
+I’ve configured the action to be triggered on every push to the `master` branch. 
 
 ```yml
 on:
@@ -255,7 +249,7 @@ However, we can issue the certificate first and then manually configure the path
 For manual certificate only (no auto-Nginx config):
 
 ```bash
-sudo certbot certonly --nginx -d example.com -d www.example.com
+sudo certbot certonly -d example.com -d www.example.com
 ```
 
 <div id='docker-compose-file'/>
@@ -317,7 +311,7 @@ production-settings
         └── .env
 ```
 
-The root folder in a `docker-compose.yml` setup is the directory where the file itself is located. To mount a volume for our `nginx.conf` file, we simply add the following line:
+To mount a volume for our `nginx.conf` file, we simply add the following line:
 
 ```yml
 nginx:
@@ -326,7 +320,7 @@ nginx:
         - ./nginx/nginx.conf:/etc/nginx/nginx.conf
 ```
 
-The first part is the path on our local machine, and the second part (after the colon `:`) is the path where the file will be stored inside the container.
+The first part is the path on our local machine, and the second part is the path where the file will be stored inside the container.
 
 We need to do the same for our SSL certificates.
 
@@ -390,5 +384,6 @@ sudo ufw status
 We are done! We successfully deployed our portfolio app on the server using Docker.  
 Docker images are built and pushed automatically via GitHub Actions, Nginx is configured as a reverse proxy with HTTPS support, and the firewall is set up to allow web traffic on ports 80 and 443. Everything is containerized, secure, and ready for production.
 
-If you have any questions, feel free to [contact me](https://avukalov.com/contact).  
-I’m always happy to help and share knowledge with all of you! 😄
+If you have any questions or would like to offer suggestions for improvement, feel free to [contact me](https://avukalov.com/contact).  
+
+I’m always happy to help! 😄
