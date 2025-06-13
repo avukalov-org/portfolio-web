@@ -2,7 +2,6 @@ import { Project, Tag } from '@/lib/definitions';
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
-import ProjectCardImage from './projectCardImage';
 import GlobeAltIcon from '@/components/icons/GlobeAltIcon';
 import CodeBracketIcon from '@/components/icons/CodeBracketIcon';
 

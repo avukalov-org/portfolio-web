@@ -30,14 +30,14 @@ const skills: Skills[] = [
   // ...
 ];
 
-const divideList = (list: Skills[]) => {
-  const index: number = Math.floor(list.length / 2);
+// const divideList = (list: Skills[]) => {
+//   const index: number = Math.floor(list.length / 2);
 
-  const first = list.slice(0, index);
-  const second = list.slice(index);
+//   const first = list.slice(0, index);
+//   const second = list.slice(index);
 
-  return [first.concat(first), second.concat(second)];
-};
+//   return [first.concat(first), second.concat(second)];
+// };
 
 const scrollingVariant = (direction: string) => ({
   animate: {
@@ -55,9 +55,8 @@ const scrollingVariant = (direction: string) => ({
 
 const ScrollingSkills: React.FC<{
   skillsList: Skills[];
-  first?: boolean;
   direction?: string;
-}> = ({ skillsList, first = true, direction = 'left' }) => {
+}> = ({ skillsList, direction = 'left' }) => {
   // const [f, second] = divideList(skills);
 
   return (

@@ -2,7 +2,6 @@
 
 import MotionWrapper from '@/components/motion-wrapper';
 import { Project, Tag } from '@/lib/definitions';
-import { useBreakpoint } from '@/lib/hooks/useBreakpoint';
 import Image from 'next/image';
 import Link from 'next/link';
 import ProjectCardImage from './projectCardImage';

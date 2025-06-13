@@ -9,16 +9,6 @@ import Image from 'next/image';
 import { useBreakpoint } from '@/lib/hooks/useBreakpoint';
 import { skills } from '@/data/data';
 
-const listItem1: ExperienceItem = {
-  title: 'Full Stack Developer',
-  desc: 'I work on small projects for friends and myself using Next.js',
-  date: 'Dec 2023 - Present',
-  company: {
-    url: 'https://avukalov.com',
-    name: 'avukalov.com',
-  },
-};
-
 const listItem2: ExperienceItem = {
   title: '.Net Backend Developer',
   desc: "I've worked on various tasks on the backend using .NET. From common tasks to microservices.",
@@ -77,8 +67,8 @@ function AboutPage() {
             </span>
             <br />
             Through formal education, I developed analytical thinking, perseverance in
-            problem-solving, and a passion for continuous learning. I hold a Bachelor's degree in
-            Mathematics and Computer Science from the University of Josip Juraj Strossmayer in
+            problem-solving, and a passion for continuous learning. I hold a Bachelor&apos;s degree
+            in Mathematics and Computer Science from the University of Josip Juraj Strossmayer in
             Osijek, where I built a strong foundation in programming, algorithms, and logical
             reasoning—skills I now apply daily as a software engineer.
           </p>

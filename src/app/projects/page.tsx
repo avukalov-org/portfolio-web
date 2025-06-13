@@ -1,4 +1,3 @@
-import ProjectCardMobile from '@/app/projects/(components)/projectCardMobile';
 import MotionWrapper from '@/components/motion-wrapper';
 import { getProjects } from '@/lib/actions';
 import { Project } from '@/lib/definitions';

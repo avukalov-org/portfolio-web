@@ -1,6 +1,5 @@
 import { Project, Tag } from '@/lib/definitions';
 import React from 'react';
-import ProjectCardImage from './projectCardImage';
 import Image from 'next/image';
 import Link from 'next/link';
 import GlobeAltIcon from '@/components/icons/GlobeAltIcon';
