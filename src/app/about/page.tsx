@@ -6,7 +6,7 @@ import Experience from './(components)/experience';
 import { useRef } from 'react';
 import { ExperienceItem, Skills } from '@/lib/definitions';
 import Image from 'next/image';
-import { Breakpoint, useBreakpoint } from '@/lib/hooks/useBreakpoint';
+import { useBreakpoint } from '@/lib/hooks/useBreakpoint';
 import { skills } from '@/data/data';
 
 const listItem1: ExperienceItem = {
